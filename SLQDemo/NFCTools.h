@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger,NFCToolsUseType) {
     NFCToolsUseTypeSystemNotSUpport,
 };
 
+
 typedef void(^NFCFailedBlock)(NSError * _Nullable error);
 typedef void(^NFCSuccessBlock)(NFCNDEFMessage * _Nullable message);
 

@@ -29,6 +29,7 @@ static NFCTools *_NFCTools;
     return _NFCTools;
 }
 
+
 - (NFCToolsUseType)available{
     
     if(@available(iOS 11.0,*)){

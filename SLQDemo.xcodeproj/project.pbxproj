@@ -53,6 +53,16 @@
 			name = "Embed App Clips";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E44C2B1C2692F8F900C467A2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +94,8 @@
 		E44C2AED2692941100C467A2 /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
 		E44C2AF02692A96200C467A2 /* NFCTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCTools.h; sourceTree = "<group>"; };
 		E44C2AF12692A96200C467A2 /* NFCTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCTools.m; sourceTree = "<group>"; };
+		E44C2AFC2692F8F900C467A2 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		E44C2B092692F8F900C467A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E46FAA3A264D21D100FB8CF1 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
 		E46FAA3D264D21D100FB8CF1 /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
 		E46FAA3F264D21D100FB8CF1 /* NSObject+WHC_Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WHC_Extension.m"; sourceTree = "<group>"; };
@@ -189,6 +201,8 @@
 				E4E2BC9A266DCC7300FE4CFA /* libz.tbd */,
 				E4F321082657616D007BA60A /* CloudKit.framework */,
 				E4009537260D73340082AE19 /* CoreFoundation.framework */,
+				E44C2AFC2692F8F900C467A2 /* ReplayKit.framework */,
+				E44C2B092692F8F900C467A2 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -283,6 +297,7 @@
 				903B517D258992EF00615C75 /* Frameworks */,
 				903B517E258992EF00615C75 /* Resources */,
 				E443ECFE266A0C3D00289DA1 /* Embed App Clips */,
+				E44C2B1C2692F8F900C467A2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);

@@ -7,7 +7,6 @@
 
 #ifndef SLQPrecompile_h
 #define SLQPrecompile_h
-
 /*
  版本号
  */
@@ -52,6 +51,7 @@
  底部安全区域远离高度
  */
 #define kBottomSafeHeight (CGFloat)(IPhoneX ? (34.0) : (0))
+
 
 #ifndef weakify
 #if DEBUG
@@ -111,5 +111,4 @@ alpha:(a)]
 #define kBoldSystemFontOfSize(size) [UIFont boldSystemFontOfSize:((size) + (kSystemFontSizeLevel))]
 
 #define ThemeColor UIColorFromRGBA(0x1abc9c,1)
-
 #endif /* SLQPrecompile_h */
