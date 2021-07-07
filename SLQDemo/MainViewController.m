@@ -8,8 +8,24 @@
 #import "MainViewController.h"
 #import <ReplayKit/ReplayKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "SystemScreenRecordController.h"
+#import <AVKit/AVKit.h>
+#import <Photos/Photos.h>
+@interface NSDate (Timestamp)
++ (NSString *)timestamp;
+@end
+ 
+@implementation NSDate (Timestamp)
++ (NSString *)timestamp {
+    long long timeinterval = (long long)([NSDate timeIntervalSinceReferenceDate] * 1000);
+    return [NSString stringWithFormat:@"%lld", timeinterval];
+}
+@end
 
 @interface MainViewController ()<RPScreenRecorderDelegate,RPPreviewViewControllerDelegate>
+@property (nonatomic,strong) AVAssetWriter *assetWriter;
+@property (nonatomic,strong) AVAssetWriterInput *videoInput;
+@property (nonatomic,strong) AVAssetWriterInput *audioInput;
 @end
 
 @implementation MainViewController
@@ -19,6 +35,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupUI];
     [self setupScreen];
+
 }
 - (void)setupScreen{
     AVAuthorizationStatus microPhoneStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
@@ -92,7 +109,42 @@
     btn1.frame = CGRectMake(110, 100, 100, 33);
     btn1.backgroundColor = [UIColor redColor];
     [btn1 setTitle:@"点我啊" forState:UIControlStateNormal];
+    [btn1 addTarget:self action:@selector(systemBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn1];
+    
+    
+    
+    UIButton *btn2 =  [UIButton buttonWithType:UIButtonTypeSystem];
+    btn2.frame = CGRectMake(110, 300, 100, 33);
+    btn2.backgroundColor = [UIColor redColor];
+    [btn2 setTitle:@"预览视频" forState:UIControlStateNormal];
+    [btn2 addTarget:self action:@selector(previewVideo) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn2];
+}
+- (void)previewVideo {
+    
+    NSArray<NSURL *> *allResource = [[self fetechAllResource] sortedArrayUsingComparator:^NSComparisonResult(NSURL *  _Nonnull obj1, NSURL * _Nonnull obj2) {
+        //排序，每次都查看最新录制的视频
+        return [obj2.path compare:obj1.path options:(NSCaseInsensitiveSearch)];
+    }];
+    AVPlayerViewController *playerViewController;
+    playerViewController = [[AVPlayerViewController alloc] init];
+    NSLog(@"url%@:",allResource);
+//
+//    for (NSURL *url in allResource) {
+//        [self saveVideoWithUrl:url];
+//    }
+    playerViewController.player = [AVPlayer playerWithURL:allResource.firstObject];
+    //    playerViewController.delegate = self;
+    [self presentViewController:playerViewController animated:YES completion:^{
+        [playerViewController.player play];
+        NSLog(@"error == %@", playerViewController.player.error);
+    }];
+}
+- (void)systemBtnClick{
+    SystemScreenRecordController *vc = [[SystemScreenRecordController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     NSLog(@"keyPath:%@,change:%@",keyPath,change);
@@ -117,6 +169,8 @@
 
 }
 - (void)start{
+    [self initData];
+    
     if ([RPScreenRecorder sharedRecorder].recording) {
         NSLog(@"录制中...");
     }else{
@@ -126,7 +180,57 @@
         }
         NSLog(@"2---[RPScreenRecorder sharedRecorder].microphoneEnabled:%d",[RPScreenRecorder sharedRecorder].microphoneEnabled);
         [RPScreenRecorder sharedRecorder].delegate = self;
-        if (@available(iOS 10.0, *)) {
+        if (@available(iOS 11.0, *)) {
+            [[RPScreenRecorder sharedRecorder] startCaptureWithHandler:^(CMSampleBufferRef  _Nonnull sampleBuffer, RPSampleBufferType bufferType, NSError * _Nullable error) {
+                NSLog(@"拿到流,可以直播推流");
+                switch (bufferType) {
+                    case RPSampleBufferTypeAudioApp:
+                        NSLog(@"内部音频流");
+                        break;
+                    case RPSampleBufferTypeVideo:
+                        NSLog(@"内部视频流");
+                        AVAssetWriterStatus status = self.assetWriter.status;
+                        if (status == AVAssetWriterStatusFailed || status == AVAssetWriterStatusCompleted || status == AVAssetWriterStatusCancelled) {
+                            return;
+                        }
+                        if (status == AVAssetWriterStatusUnknown) {
+                            [self.assetWriter startWriting];
+                            CMTime time = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
+                            [self.assetWriter startSessionAtSourceTime:time];
+                            
+                        }
+                        if (status == AVAssetWriterStatusWriting ) {
+                            if (self.videoInput.isReadyForMoreMediaData) {
+                                BOOL success = [self.videoInput appendSampleBuffer:sampleBuffer];
+                                if (!success) {
+                                    [self stopRecording];
+                                }
+                            }
+                        }
+                        break;
+                    case RPSampleBufferTypeAudioMic:
+                        NSLog(@"麦克风音频");
+                        if (self.audioInput.isReadyForMoreMediaData) {
+                            BOOL success = [self.audioInput appendSampleBuffer:sampleBuffer];
+                            if (!success) {
+                                [self stopRecording];
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            } completionHandler:^(NSError * _Nullable error) {
+                NSLog(@"startCaptureWithHandler completionHandler");
+                if (error) {
+
+                }else{
+
+                }
+            }];
+        }
+        else
+            if (@available(iOS 10.0, *)) {
             [[RPScreenRecorder sharedRecorder] startRecordingWithHandler:^(NSError * _Nullable error) {
                 NSLog(@"startRecordingWithHandler:%@",error);
             }];
@@ -140,15 +244,65 @@
     
     
 }
+- (void)ddd {
+    
+// 获取沙盒根目录路径
+    NSString *homeDir = NSHomeDirectory();
+    
+    // 获取Documents目录路径
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) firstObject];
+    
+    //获取Library的目录路径
+    NSString *libDir = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask,YES) lastObject];
+    
+    // 获取cache目录路径
+    NSString *cachesDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES) firstObject];
+
+    // 获取tmp目录路径
+    NSString *tmpDir =NSTemporaryDirectory();
+    
+    // 获取应用程序程序包中资源文件路径的方法：
+    NSString *bundle = [[NSBundle mainBundle] bundlePath];
+
+    NSLog(@"homeDir=%@ \n docDir=%@ \n libDir=%@ \n cachesDir=%@ \n tmpDir=%@ \n bundle=%@", homeDir,docDir, libDir, cachesDir, tmpDir, bundle);
+    
+}
+// #import <Photos/Photos.h>
+- (void)saveVideoWithUrl:(NSURL *)url {
+    PHPhotoLibrary *photoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
+    [photoLibrary performChanges:^{
+        [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:url];
+        
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        if (success) {
+            NSLog(@"已将视频保存至相册");
+        } else {
+            NSLog(@"未能保存视频到相册");
+        }
+    }];
+}
 - (void)stop{
     if ([RPScreenRecorder sharedRecorder].recording) {
-        [[RPScreenRecorder sharedRecorder] stopRecordingWithHandler:^(RPPreviewViewController * _Nullable previewViewController, NSError * _Nullable error) {
-            NSLog(@"stopRecordingWithHandler");
-            if (!error) {
-                previewViewController.previewControllerDelegate = self;
-                [self presentViewController:previewViewController animated:YES completion:nil];
-            }
-        }];
+        
+        if (@available(iOS 14.0, *)) {
+            __weak typeof(self) weakSelf = self;
+            NSString *cachesDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES) firstObject];
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/test.mp4",cachesDir]];
+            [[RPScreenRecorder sharedRecorder] stopRecordingWithOutputURL:url  completionHandler:^(NSError * _Nullable error) {
+                NSLog(@"stopRecordingWithOutputURL:%@",url);
+                [weakSelf saveVideoWithUrl:url];
+               
+            }];
+        } else {
+            [[RPScreenRecorder sharedRecorder] stopRecordingWithHandler:^(RPPreviewViewController * _Nullable previewViewController, NSError * _Nullable error) {
+                NSLog(@"stopRecordingWithHandler");
+                if (!error) {
+                    previewViewController.previewControllerDelegate = self;
+                    [self presentViewController:previewViewController animated:YES completion:nil];
+                }
+            }];
+        }
+  
     }
 }
 
@@ -181,4 +335,127 @@
 - (void)previewController:(RPPreviewViewController *)previewController didFinishWithActivityTypes:(NSSet<NSString *> *)activityTypes{
     NSLog(@"didFinishWithActivityTypes:%@",activityTypes);
 }
+
+#pragma mark - Video
+- (NSString *)getDocumentsPath
+{
+    //获取Documents路径
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [paths objectAtIndex:0];
+    NSLog(@"path:%@", path);
+    return path;
+}
+- (NSString *)getVideoPath {
+    
+    static NSString *replaysPath;
+    if (!replaysPath) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSURL *documentRootPath = [NSURL URLWithString:[self getDocumentsPath]];
+        replaysPath = [documentRootPath.path stringByAppendingPathComponent:@"Replays"];
+        if (![fileManager fileExistsAtPath:replaysPath]) {
+            NSError *error_createPath = nil;
+            BOOL success_createPath = [fileManager createDirectoryAtPath:replaysPath withIntermediateDirectories:true attributes:@{} error:&error_createPath];
+            if (success_createPath && !error_createPath) {
+                NSLog(@"%@路径创建成功!", replaysPath);
+            } else {
+                NSLog(@"%@路径创建失败:%@", replaysPath, error_createPath);
+            }
+        }else{
+            NSLog(@"%@路径已存在!", replaysPath);
+        }
+    }
+    return replaysPath;
+}
+- (NSURL *)getFilePathUrl {
+    NSString *time = [NSDate timestamp];
+    NSString *fileName = [time stringByAppendingPathExtension:@"mp4"];
+    NSString *fullPath = [[self getVideoPath] stringByAppendingPathComponent:fileName];
+    return [NSURL fileURLWithPath:fullPath];
+}
+
+- (NSArray <NSURL *> *)fetechAllResource {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSString *documentPath = [self getVideoPath];
+    NSURL *documentURL = [NSURL fileURLWithPath:documentPath];
+    NSError *error = nil;
+    NSArray<NSURL *> *allResource  =  [fileManager contentsOfDirectoryAtURL:documentURL includingPropertiesForKeys:@[] options:(NSDirectoryEnumerationSkipsSubdirectoryDescendants) error:&error];
+    return allResource;
+    
+}
+- (void)initData {
+    if ([self.assetWriter canAddInput:self.videoInput]) {
+        [self.assetWriter addInput:self.videoInput];
+    }else{
+        NSLog(@"添加input失败");
+    }
+}
+- (AVAssetWriter *)assetWriter{
+    if (!_assetWriter) {
+        NSError *error = nil;
+        _assetWriter = [[AVAssetWriter alloc] initWithURL:[self getFilePathUrl] fileType:(AVFileTypeMPEG4) error:&error];
+        NSAssert(!error, @"_assetWriter 初始化失败");
+    }
+    return _assetWriter;
+}
+-(AVAssetWriterInput *)audioInput{
+    if (!_audioInput) {
+        // 音频参数
+        NSDictionary *audioCompressionSettings = @{
+            AVEncoderBitRatePerChannelKey:@(28000),
+            AVFormatIDKey:@(kAudioFormatMPEG4AAC),
+            AVNumberOfChannelsKey:@(1),
+            AVSampleRateKey:@(22050)
+        };
+        _audioInput  = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeAudio outputSettings:audioCompressionSettings];
+    }
+    return _audioInput;
+}
+
+-(AVAssetWriterInput *)videoInput{
+    if (!_videoInput) {
+        
+        CGSize size = [UIScreen mainScreen].bounds.size;
+        // 视频大小
+        NSInteger numPixels = size.width * size.height;
+        // 像素比
+        CGFloat bitsPerPixel = 7.5;
+        NSInteger bitsPerSecond = numPixels * bitsPerPixel;
+        // 码率和帧率设置
+        NSDictionary *videoCompressionSettings = @{
+            AVVideoAverageBitRateKey:@(bitsPerSecond),//码率
+            AVVideoExpectedSourceFrameRateKey:@(25),// 帧率
+            AVVideoMaxKeyFrameIntervalKey:@(15),// 关键帧最大间隔
+            AVVideoProfileLevelKey:AVVideoProfileLevelH264BaselineAutoLevel,
+            AVVideoPixelAspectRatioKey:@{
+                    AVVideoPixelAspectRatioVerticalSpacingKey:@(1),
+                    AVVideoPixelAspectRatioHorizontalSpacingKey:@(1)
+            }
+        };
+        CGFloat scale = [UIScreen mainScreen].scale;
+        
+        // 视频参数
+        NSDictionary *videoOutputSettings = @{
+            AVVideoCodecKey:AVVideoCodecTypeH264,
+            AVVideoScalingModeKey:AVVideoScalingModeResizeAspectFill,
+            AVVideoWidthKey:@(size.width*scale),
+            AVVideoHeightKey:@(size.height*scale),
+            AVVideoCompressionPropertiesKey:videoCompressionSettings
+        };
+        
+        _videoInput  = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:videoOutputSettings];
+        _videoInput.expectsMediaDataInRealTime = true;
+    }
+    return _videoInput;
+}
+- (void)stopRecording {
+//    if (self.assetWriter.status == AVAssetWriterStatusWriting) {
+
+        [self.assetWriter finishWritingWithCompletionHandler:^{
+            NSLog(@"结束写入数据");
+        }];
+//        [self.audioInput markAsFinished];
+//    }
+}
+
 @end

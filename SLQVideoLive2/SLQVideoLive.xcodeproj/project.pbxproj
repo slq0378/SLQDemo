@@ -10,7 +10,7 @@
 		903B5185258992EF00615C75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 903B5184258992EF00615C75 /* AppDelegate.m */; };
 		903B5188258992EF00615C75 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 903B5187258992EF00615C75 /* MainViewController.m */; };
 		903B518B258992EF00615C75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 903B5189258992EF00615C75 /* Main.storyboard */; };
-		903B518E258992EF00615C75 /* SLQDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 903B518C258992EF00615C75 /* SLQDemo.xcdatamodeld */; };
+		903B518E258992EF00615C75 /* SLQVideoLive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 903B518C258992EF00615C75 /* SLQVideoLive.xcdatamodeld */; };
 		903B5190258992F200615C75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 903B518F258992F200615C75 /* Assets.xcassets */; };
 		903B5193258992F200615C75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 903B5191258992F200615C75 /* LaunchScreen.storyboard */; };
 		903B5196258992F200615C75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 903B5195258992F200615C75 /* main.m */; };
@@ -18,12 +18,16 @@
 		E40ED657265CA51E000BBC52 /* NSArray+CN.m in Sources */ = {isa = PBXBuildFile; fileRef = E40ED656265CA51E000BBC52 /* NSArray+CN.m */; };
 		E40ED65A265CA529000BBC52 /* NSDictionary+CN.m in Sources */ = {isa = PBXBuildFile; fileRef = E40ED659265CA529000BBC52 /* NSDictionary+CN.m */; };
 		E42761FD264E221000AC8592 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = E42761FC264E221000AC8592 /* NSString+Size.m */; };
-		E42B6C3F268F0FFC00DAC3D8 /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42B6C3E268F0FFC00DAC3D8 /* Test1ViewController.m */; };
-		E42B6C43268F100400DAC3D8 /* Test2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42B6C42268F100400DAC3D8 /* Test2ViewController.m */; };
-		E42B6C47268F100B00DAC3D8 /* Test3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42B6C46268F100B00DAC3D8 /* Test3ViewController.m */; };
-		E44C2AEE2692941200C467A2 /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44C2AED2692941100C467A2 /* CoreNFC.framework */; };
-		E44C2AF22692A96200C467A2 /* NFCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = E44C2AF12692A96200C467A2 /* NFCTools.m */; };
-		E44C2B502693ED0700C467A2 /* SystemScreenRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = E44C2B4F2693ED0700C467A2 /* SystemScreenRecordController.m */; };
+		E44C2B7326943A3600C467A2 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44C2B7226943A3600C467A2 /* ReplayKit.framework */; };
+		E44C2B7726943A3600C467A2 /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E44C2B7626943A3600C467A2 /* SampleHandler.m */; };
+		E44C2B7E26943A3600C467A2 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44C2B7226943A3600C467A2 /* ReplayKit.framework */; };
+		E44C2B8026943A3700C467A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44C2B7F26943A3600C467A2 /* UIKit.framework */; };
+		E44C2B8426943A3700C467A2 /* BroadcastSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E44C2B8326943A3700C467A2 /* BroadcastSetupViewController.m */; };
+		E44C2B8826943A3700C467A2 /* boradcastrSetupUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E44C2B7D26943A3600C467A2 /* boradcastrSetupUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E44C2B8B26943A3700C467A2 /* boradcastr.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E44C2B7126943A3600C467A2 /* boradcastr.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E44D58B1266F0064006C0A66 /* TXLiteAVSDK_Smart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44D58B0266F0064006C0A66 /* TXLiteAVSDK_Smart.framework */; };
+		E46FAA59264D21D100FB8CF1 /* SLQAskDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA39264D21D100FB8CF1 /* SLQAskDataModel.m */; };
+		E46FAA5A264D21D100FB8CF1 /* SLQAskDataModel.sql in Resources */ = {isa = PBXBuildFile; fileRef = E46FAA3C264D21D100FB8CF1 /* SLQAskDataModel.sql */; };
 		E46FAA5B264D21D100FB8CF1 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA3D264D21D100FB8CF1 /* SQLiteManager.m */; };
 		E46FAA5C264D21D100FB8CF1 /* NSObject+WHC_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA3F264D21D100FB8CF1 /* NSObject+WHC_Extension.m */; };
 		E46FAA5D264D21D100FB8CF1 /* WHC_KeyboardHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA43264D21D100FB8CF1 /* WHC_KeyboardHeaderView.m */; };
@@ -34,15 +38,35 @@
 		E46FAA62264D21D100FB8CF1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA4E264D21D100FB8CF1 /* FMDatabase.m */; };
 		E46FAA63264D21D100FB8CF1 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA52264D21D100FB8CF1 /* FMDatabasePool.m */; };
 		E46FAA64264D21D100FB8CF1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA53264D21D100FB8CF1 /* FMResultSet.m */; };
-		E4A354F02695572E00C1805C /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A354EF2695572D00C1805C /* Photos.framework */; };
 		E4E2BC9B266DCC7300FE4CFA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BC9A266DCC7300FE4CFA /* libz.tbd */; };
 		E4E2BC9D266DCC7C00FE4CFA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BC9C266DCC7C00FE4CFA /* libc++.tbd */; };
 		E4E2BC9F266DCC8500FE4CFA /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BC9E266DCC8500FE4CFA /* libresolv.tbd */; };
 		E4E2BCA1266DCC8D00FE4CFA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BCA0266DCC8D00FE4CFA /* libsqlite3.tbd */; };
 		E4E2BCA3266DCC9600FE4CFA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BCA2266DCC9600FE4CFA /* Accelerate.framework */; };
 		E4E2BCA5266DCC9C00FE4CFA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BCA4266DCC9C00FE4CFA /* OpenAL.framework */; };
+		E4E2BCAE266DF38100FE4CFA /* SLQVideoPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E2BCAD266DF38100FE4CFA /* SLQVideoPushViewController.m */; };
+		E4E2BCB4266E100A00FE4CFA /* SLQVideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E2BCB3266E100A00FE4CFA /* SLQVideoPlayViewController.m */; };
 		E4F321092657616D007BA60A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F321082657616D007BA60A /* CloudKit.framework */; };
+		E4F3210C26579413007BA60A /* SLQAskTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F3210B26579413007BA60A /* SLQAskTypeModel.m */; };
+		E4F3210E26579425007BA60A /* SLQAskTypeModel.sql in Resources */ = {isa = PBXBuildFile; fileRef = E4F3210D26579425007BA60A /* SLQAskTypeModel.sql */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E44C2B8626943A3700C467A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 903B5178258992EF00615C75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E44C2B7C26943A3600C467A2;
+			remoteInfo = boradcastrSetupUI;
+		};
+		E44C2B8926943A3700C467A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 903B5178258992EF00615C75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E44C2B7026943A3600C467A2;
+			remoteInfo = boradcastr;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		E443ECFE266A0C3D00289DA1 /* Embed App Clips */ = {
@@ -55,12 +79,14 @@
 			name = "Embed App Clips";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E44C2B1C2692F8F900C467A2 /* Embed App Extensions */ = {
+		E44C2B8C26943A3700C467A2 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				E44C2B8826943A3700C467A2 /* boradcastrSetupUI.appex in Embed App Extensions */,
+				E44C2B8B26943A3700C467A2 /* boradcastr.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +94,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		903B5180258992EF00615C75 /* SLQDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLQDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		903B5180258992EF00615C75 /* SLQVideoLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLQVideoLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		903B5183258992EF00615C75 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		903B5184258992EF00615C75 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		903B5186258992EF00615C75 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -87,20 +113,21 @@
 		E40ED65B265CA59D000BBC52 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		E42761FB264E221000AC8592 /* NSString+Size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
 		E42761FC264E221000AC8592 /* NSString+Size.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
-		E42B6C3D268F0FFC00DAC3D8 /* Test1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
-		E42B6C3E268F0FFC00DAC3D8 /* Test1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
-		E42B6C41268F100400DAC3D8 /* Test2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test2ViewController.h; sourceTree = "<group>"; };
-		E42B6C42268F100400DAC3D8 /* Test2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test2ViewController.m; sourceTree = "<group>"; };
-		E42B6C45268F100B00DAC3D8 /* Test3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test3ViewController.h; sourceTree = "<group>"; };
-		E42B6C46268F100B00DAC3D8 /* Test3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test3ViewController.m; sourceTree = "<group>"; };
-		E44C2AED2692941100C467A2 /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
-		E44C2AF02692A96200C467A2 /* NFCTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCTools.h; sourceTree = "<group>"; };
-		E44C2AF12692A96200C467A2 /* NFCTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCTools.m; sourceTree = "<group>"; };
-		E44C2AFC2692F8F900C467A2 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
-		E44C2B092692F8F900C467A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		E44C2B4E2693ED0700C467A2 /* SystemScreenRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemScreenRecordController.h; sourceTree = "<group>"; };
-		E44C2B4F2693ED0700C467A2 /* SystemScreenRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemScreenRecordController.m; sourceTree = "<group>"; };
+		E44C2B7126943A3600C467A2 /* boradcastr.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = boradcastr.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E44C2B7226943A3600C467A2 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		E44C2B7526943A3600C467A2 /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
+		E44C2B7626943A3600C467A2 /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
+		E44C2B7826943A3600C467A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E44C2B7D26943A3600C467A2 /* boradcastrSetupUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = boradcastrSetupUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E44C2B7F26943A3600C467A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E44C2B8226943A3700C467A2 /* BroadcastSetupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BroadcastSetupViewController.h; sourceTree = "<group>"; };
+		E44C2B8326943A3700C467A2 /* BroadcastSetupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastSetupViewController.m; sourceTree = "<group>"; };
+		E44C2B8526943A3700C467A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E44D58B0266F0064006C0A66 /* TXLiteAVSDK_Smart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_Smart.framework; sourceTree = "<group>"; };
+		E46FAA39264D21D100FB8CF1 /* SLQAskDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLQAskDataModel.m; sourceTree = "<group>"; };
 		E46FAA3A264D21D100FB8CF1 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
+		E46FAA3B264D21D100FB8CF1 /* SLQAskDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLQAskDataModel.h; sourceTree = "<group>"; };
+		E46FAA3C264D21D100FB8CF1 /* SLQAskDataModel.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SLQAskDataModel.sql; sourceTree = "<group>"; };
 		E46FAA3D264D21D100FB8CF1 /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
 		E46FAA3F264D21D100FB8CF1 /* NSObject+WHC_Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WHC_Extension.m"; sourceTree = "<group>"; };
 		E46FAA40264D21D100FB8CF1 /* WHC_KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHC_KeyboardManager.h; sourceTree = "<group>"; };
@@ -122,15 +149,23 @@
 		E46FAA52264D21D100FB8CF1 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		E46FAA53264D21D100FB8CF1 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		E46FAA54264D21D100FB8CF1 /* SLQPrecompile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLQPrecompile.h; sourceTree = "<group>"; };
-		E4A354EF2695572D00C1805C /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		E4A354F2269582F100C1805C /* boradcastrSetupUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = boradcastrSetupUI.entitlements; sourceTree = "<group>"; };
+		E4A354F62695833600C1805C /* boradcastr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = boradcastr.entitlements; sourceTree = "<group>"; };
 		E4E2BC9A266DCC7300FE4CFA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E4E2BC9C266DCC7C00FE4CFA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E4E2BC9E266DCC8500FE4CFA /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		E4E2BCA0266DCC8D00FE4CFA /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E4E2BCA2266DCC9600FE4CFA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		E4E2BCA4266DCC9C00FE4CFA /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		E4F321072657614E007BA60A /* SLQDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SLQDemo.entitlements; sourceTree = "<group>"; };
+		E4E2BCAC266DF38100FE4CFA /* SLQVideoPushViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLQVideoPushViewController.h; sourceTree = "<group>"; };
+		E4E2BCAD266DF38100FE4CFA /* SLQVideoPushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLQVideoPushViewController.m; sourceTree = "<group>"; };
+		E4E2BCB2266E100A00FE4CFA /* SLQVideoPlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLQVideoPlayViewController.h; sourceTree = "<group>"; };
+		E4E2BCB3266E100A00FE4CFA /* SLQVideoPlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLQVideoPlayViewController.m; sourceTree = "<group>"; };
+		E4F321072657614E007BA60A /* SLQVideoLive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SLQVideoLive.entitlements; sourceTree = "<group>"; };
 		E4F321082657616D007BA60A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		E4F3210A26579413007BA60A /* SLQAskTypeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLQAskTypeModel.h; sourceTree = "<group>"; };
+		E4F3210B26579413007BA60A /* SLQAskTypeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLQAskTypeModel.m; sourceTree = "<group>"; };
+		E4F3210D26579425007BA60A /* SLQAskTypeModel.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SLQAskTypeModel.sql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,15 +174,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4E2BCA5266DCC9C00FE4CFA /* OpenAL.framework in Frameworks */,
-				E4A354F02695572E00C1805C /* Photos.framework in Frameworks */,
 				E4E2BCA3266DCC9600FE4CFA /* Accelerate.framework in Frameworks */,
-				E44C2AEE2692941200C467A2 /* CoreNFC.framework in Frameworks */,
 				E4E2BCA1266DCC8D00FE4CFA /* libsqlite3.tbd in Frameworks */,
 				E4E2BC9F266DCC8500FE4CFA /* libresolv.tbd in Frameworks */,
+				E44D58B1266F0064006C0A66 /* TXLiteAVSDK_Smart.framework in Frameworks */,
 				E4E2BC9D266DCC7C00FE4CFA /* libc++.tbd in Frameworks */,
 				E4E2BC9B266DCC7300FE4CFA /* libz.tbd in Frameworks */,
 				E4009538260D73340082AE19 /* CoreFoundation.framework in Frameworks */,
 				E4F321092657616D007BA60A /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E44C2B6E26943A3600C467A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E44C2B7326943A3600C467A2 /* ReplayKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E44C2B7A26943A3600C467A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E44C2B7E26943A3600C467A2 /* ReplayKit.framework in Frameworks */,
+				E44C2B8026943A3700C467A2 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +208,9 @@
 		903B5177258992EF00615C75 = {
 			isa = PBXGroup;
 			children = (
-				903B5182258992EF00615C75 /* SLQDemo */,
+				903B5182258992EF00615C75 /* SLQVideoLive */,
+				E44C2B7426943A3600C467A2 /* boradcastr */,
+				E44C2B8126943A3700C467A2 /* boradcastrSetupUI */,
 				903B5181258992EF00615C75 /* Products */,
 				E4009536260D73340082AE19 /* Frameworks */,
 			);
@@ -166,25 +219,26 @@
 		903B5181258992EF00615C75 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				903B5180258992EF00615C75 /* SLQDemo.app */,
+				903B5180258992EF00615C75 /* SLQVideoLive.app */,
+				E44C2B7126943A3600C467A2 /* boradcastr.appex */,
+				E44C2B7D26943A3600C467A2 /* boradcastrSetupUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		903B5182258992EF00615C75 /* SLQDemo */ = {
+		903B5182258992EF00615C75 /* SLQVideoLive */ = {
 			isa = PBXGroup;
 			children = (
-				E4F321072657614E007BA60A /* SLQDemo.entitlements */,
+				E4F321072657614E007BA60A /* SLQVideoLive.entitlements */,
 				E46FAA37264D21D100FB8CF1 /* Tool */,
 				903B5183258992EF00615C75 /* AppDelegate.h */,
 				903B5184258992EF00615C75 /* AppDelegate.m */,
+				E4E2BCB2266E100A00FE4CFA /* SLQVideoPlayViewController.h */,
+				E4E2BCB3266E100A00FE4CFA /* SLQVideoPlayViewController.m */,
+				E4E2BCAC266DF38100FE4CFA /* SLQVideoPushViewController.h */,
+				E4E2BCAD266DF38100FE4CFA /* SLQVideoPushViewController.m */,
 				903B5186258992EF00615C75 /* MainViewController.h */,
 				903B5187258992EF00615C75 /* MainViewController.m */,
-				E44C2B4E2693ED0700C467A2 /* SystemScreenRecordController.h */,
-				E44C2B4F2693ED0700C467A2 /* SystemScreenRecordController.m */,
-				E44C2AF02692A96200C467A2 /* NFCTools.h */,
-				E44C2AF12692A96200C467A2 /* NFCTools.m */,
-				E42B6C4A268F101A00DAC3D8 /* View */,
 				E46FAA54264D21D100FB8CF1 /* SLQPrecompile.h */,
 				E40ED65B265CA59D000BBC52 /* PrefixHeader.pch */,
 				903B5189258992EF00615C75 /* Main.storyboard */,
@@ -192,16 +246,14 @@
 				903B5191258992F200615C75 /* LaunchScreen.storyboard */,
 				903B5194258992F200615C75 /* Info.plist */,
 				903B5195258992F200615C75 /* main.m */,
-				903B518C258992EF00615C75 /* SLQDemo.xcdatamodeld */,
+				903B518C258992EF00615C75 /* SLQVideoLive.xcdatamodeld */,
 			);
-			path = SLQDemo;
+			path = SLQVideoLive;
 			sourceTree = "<group>";
 		};
 		E4009536260D73340082AE19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E4A354EF2695572D00C1805C /* Photos.framework */,
-				E44C2AED2692941100C467A2 /* CoreNFC.framework */,
 				E4E2BCA4266DCC9C00FE4CFA /* OpenAL.framework */,
 				E4E2BCA2266DCC9600FE4CFA /* Accelerate.framework */,
 				E4E2BCA0266DCC8D00FE4CFA /* libsqlite3.tbd */,
@@ -210,28 +262,38 @@
 				E4E2BC9A266DCC7300FE4CFA /* libz.tbd */,
 				E4F321082657616D007BA60A /* CloudKit.framework */,
 				E4009537260D73340082AE19 /* CoreFoundation.framework */,
-				E44C2AFC2692F8F900C467A2 /* ReplayKit.framework */,
-				E44C2B092692F8F900C467A2 /* UIKit.framework */,
+				E44C2B7226943A3600C467A2 /* ReplayKit.framework */,
+				E44C2B7F26943A3600C467A2 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E42B6C4A268F101A00DAC3D8 /* View */ = {
+		E44C2B7426943A3600C467A2 /* boradcastr */ = {
 			isa = PBXGroup;
 			children = (
-				E42B6C3D268F0FFC00DAC3D8 /* Test1ViewController.h */,
-				E42B6C3E268F0FFC00DAC3D8 /* Test1ViewController.m */,
-				E42B6C41268F100400DAC3D8 /* Test2ViewController.h */,
-				E42B6C42268F100400DAC3D8 /* Test2ViewController.m */,
-				E42B6C45268F100B00DAC3D8 /* Test3ViewController.h */,
-				E42B6C46268F100B00DAC3D8 /* Test3ViewController.m */,
+				E4A354F62695833600C1805C /* boradcastr.entitlements */,
+				E44C2B7526943A3600C467A2 /* SampleHandler.h */,
+				E44C2B7626943A3600C467A2 /* SampleHandler.m */,
+				E44C2B7826943A3600C467A2 /* Info.plist */,
 			);
-			path = View;
+			path = boradcastr;
+			sourceTree = "<group>";
+		};
+		E44C2B8126943A3700C467A2 /* boradcastrSetupUI */ = {
+			isa = PBXGroup;
+			children = (
+				E4A354F2269582F100C1805C /* boradcastrSetupUI.entitlements */,
+				E44C2B8226943A3700C467A2 /* BroadcastSetupViewController.h */,
+				E44C2B8326943A3700C467A2 /* BroadcastSetupViewController.m */,
+				E44C2B8526943A3700C467A2 /* Info.plist */,
+			);
+			path = boradcastrSetupUI;
 			sourceTree = "<group>";
 		};
 		E46FAA37264D21D100FB8CF1 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				E44D58B0266F0064006C0A66 /* TXLiteAVSDK_Smart.framework */,
 				E46FAA38264D21D100FB8CF1 /* DataBase */,
 				E46FAA3E264D21D100FB8CF1 /* WHC_KeyboradManager(OC) */,
 				E46FAA45264D21D100FB8CF1 /* Category */,
@@ -245,6 +307,12 @@
 			children = (
 				E46FAA3A264D21D100FB8CF1 /* SQLiteManager.h */,
 				E46FAA3D264D21D100FB8CF1 /* SQLiteManager.m */,
+				E46FAA3B264D21D100FB8CF1 /* SLQAskDataModel.h */,
+				E46FAA39264D21D100FB8CF1 /* SLQAskDataModel.m */,
+				E46FAA3C264D21D100FB8CF1 /* SLQAskDataModel.sql */,
+				E4F3210A26579413007BA60A /* SLQAskTypeModel.h */,
+				E4F3210B26579413007BA60A /* SLQAskTypeModel.m */,
+				E4F3210D26579425007BA60A /* SLQAskTypeModel.sql */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -298,24 +366,60 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		903B517F258992EF00615C75 /* SLQDemo */ = {
+		903B517F258992EF00615C75 /* SLQVideoLive */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 903B5199258992F200615C75 /* Build configuration list for PBXNativeTarget "SLQDemo" */;
+			buildConfigurationList = 903B5199258992F200615C75 /* Build configuration list for PBXNativeTarget "SLQVideoLive" */;
 			buildPhases = (
 				903B517C258992EF00615C75 /* Sources */,
 				903B517D258992EF00615C75 /* Frameworks */,
 				903B517E258992EF00615C75 /* Resources */,
 				E443ECFE266A0C3D00289DA1 /* Embed App Clips */,
-				E44C2B1C2692F8F900C467A2 /* Embed App Extensions */,
+				E44C2B8C26943A3700C467A2 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E44C2B8726943A3700C467A2 /* PBXTargetDependency */,
+				E44C2B8A26943A3700C467A2 /* PBXTargetDependency */,
+			);
+			name = SLQVideoLive;
+			productName = OCDemo1;
+			productReference = 903B5180258992EF00615C75 /* SLQVideoLive.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E44C2B7026943A3600C467A2 /* boradcastr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E44C2B9226943A3700C467A2 /* Build configuration list for PBXNativeTarget "boradcastr" */;
+			buildPhases = (
+				E44C2B6D26943A3600C467A2 /* Sources */,
+				E44C2B6E26943A3600C467A2 /* Frameworks */,
+				E44C2B6F26943A3600C467A2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SLQDemo;
-			productName = OCDemo1;
-			productReference = 903B5180258992EF00615C75 /* SLQDemo.app */;
-			productType = "com.apple.product-type.application";
+			name = boradcastr;
+			productName = boradcastr;
+			productReference = E44C2B7126943A3600C467A2 /* boradcastr.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		E44C2B7C26943A3600C467A2 /* boradcastrSetupUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E44C2B9126943A3700C467A2 /* Build configuration list for PBXNativeTarget "boradcastrSetupUI" */;
+			buildPhases = (
+				E44C2B7926943A3600C467A2 /* Sources */,
+				E44C2B7A26943A3600C467A2 /* Frameworks */,
+				E44C2B7B26943A3600C467A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = boradcastrSetupUI;
+			productName = boradcastrSetupUI;
+			productReference = E44C2B7D26943A3600C467A2 /* boradcastrSetupUI.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -340,9 +444,15 @@
 							};
 						};
 					};
+					E44C2B7026943A3600C467A2 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					E44C2B7C26943A3600C467A2 = {
+						CreatedOnToolsVersion = 12.4;
+					};
 				};
 			};
-			buildConfigurationList = 903B517B258992EF00615C75 /* Build configuration list for PBXProject "SLQDemo" */;
+			buildConfigurationList = 903B517B258992EF00615C75 /* Build configuration list for PBXProject "SLQVideoLive" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -355,7 +465,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				903B517F258992EF00615C75 /* SLQDemo */,
+				903B517F258992EF00615C75 /* SLQVideoLive */,
+				E44C2B7026943A3600C467A2 /* boradcastr */,
+				E44C2B7C26943A3600C467A2 /* boradcastrSetupUI */,
 			);
 		};
 /* End PBXProject section */
@@ -368,6 +480,22 @@
 				903B5193258992F200615C75 /* LaunchScreen.storyboard in Resources */,
 				903B5190258992F200615C75 /* Assets.xcassets in Resources */,
 				903B518B258992EF00615C75 /* Main.storyboard in Resources */,
+				E4F3210E26579425007BA60A /* SLQAskTypeModel.sql in Resources */,
+				E46FAA5A264D21D100FB8CF1 /* SLQAskDataModel.sql in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E44C2B6F26943A3600C467A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E44C2B7B26943A3600C467A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,32 +506,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F3210C26579413007BA60A /* SLQAskTypeModel.m in Sources */,
 				903B5188258992EF00615C75 /* MainViewController.m in Sources */,
+				E4E2BCB4266E100A00FE4CFA /* SLQVideoPlayViewController.m in Sources */,
 				E46FAA5C264D21D100FB8CF1 /* NSObject+WHC_Extension.m in Sources */,
 				E42761FD264E221000AC8592 /* NSString+Size.m in Sources */,
-				E44C2AF22692A96200C467A2 /* NFCTools.m in Sources */,
 				E46FAA62264D21D100FB8CF1 /* FMDatabase.m in Sources */,
-				E42B6C43268F100400DAC3D8 /* Test2ViewController.m in Sources */,
 				E46FAA64264D21D100FB8CF1 /* FMResultSet.m in Sources */,
+				E46FAA59264D21D100FB8CF1 /* SLQAskDataModel.m in Sources */,
 				E46FAA60264D21D100FB8CF1 /* FMDatabaseQueue.m in Sources */,
-				E42B6C3F268F0FFC00DAC3D8 /* Test1ViewController.m in Sources */,
 				E40ED65A265CA529000BBC52 /* NSDictionary+CN.m in Sources */,
 				E46FAA5E264D21D100FB8CF1 /* WHC_KeyboardManager.m in Sources */,
 				E46FAA61264D21D100FB8CF1 /* FMDatabaseAdditions.m in Sources */,
 				E46FAA5D264D21D100FB8CF1 /* WHC_KeyboardHeaderView.m in Sources */,
-				E44C2B502693ED0700C467A2 /* SystemScreenRecordController.m in Sources */,
 				E46FAA5B264D21D100FB8CF1 /* SQLiteManager.m in Sources */,
 				903B5185258992EF00615C75 /* AppDelegate.m in Sources */,
 				E46FAA63264D21D100FB8CF1 /* FMDatabasePool.m in Sources */,
 				E46FAA5F264D21D100FB8CF1 /* UIView+Extension.m in Sources */,
 				903B5196258992F200615C75 /* main.m in Sources */,
 				E40ED657265CA51E000BBC52 /* NSArray+CN.m in Sources */,
-				E42B6C47268F100B00DAC3D8 /* Test3ViewController.m in Sources */,
-				903B518E258992EF00615C75 /* SLQDemo.xcdatamodeld in Sources */,
+				E4E2BCAE266DF38100FE4CFA /* SLQVideoPushViewController.m in Sources */,
+				903B518E258992EF00615C75 /* SLQVideoLive.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E44C2B6D26943A3600C467A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E44C2B7726943A3600C467A2 /* SampleHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E44C2B7926943A3600C467A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E44C2B8426943A3700C467A2 /* BroadcastSetupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E44C2B8726943A3700C467A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E44C2B7C26943A3600C467A2 /* boradcastrSetupUI */;
+			targetProxy = E44C2B8626943A3700C467A2 /* PBXContainerItemProxy */;
+		};
+		E44C2B8A26943A3700C467A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E44C2B7026943A3600C467A2 /* boradcastr */;
+			targetProxy = E44C2B8926943A3700C467A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		903B5189258992EF00615C75 /* Main.storyboard */ = {
@@ -477,7 +633,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -531,7 +687,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -543,23 +699,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SLQDemo/SLQDemo.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_ENTITLEMENTS = SLQVideoLive/SLQVideoLive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L76K5AFQYD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SLQVideoLive/Tool",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/SLQDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				INFOPLIST_FILE = "$(SRCROOT)/SLQVideoLive/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.technique.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ask.answer.live;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -568,23 +722,101 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SLQDemo/SLQDemo.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_ENTITLEMENTS = SLQVideoLive/SLQVideoLive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L76K5AFQYD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SLQVideoLive/Tool",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/SLQDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				INFOPLIST_FILE = "$(SRCROOT)/SLQVideoLive/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.technique.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ask.answer.live;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E44C2B8D26943A3700C467A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = boradcastr/boradcastr.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L76K5AFQYD;
+				INFOPLIST_FILE = boradcastr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ask.answer.live.boradcastr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E44C2B8E26943A3700C467A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = boradcastr/boradcastr.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L76K5AFQYD;
+				INFOPLIST_FILE = boradcastr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ask.answer.live.boradcastr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E44C2B8F26943A3700C467A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = boradcastrSetupUI/boradcastrSetupUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L76K5AFQYD;
+				INFOPLIST_FILE = boradcastrSetupUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ask.answer.live.boradcastrSetupUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E44C2B9026943A3700C467A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = boradcastrSetupUI/boradcastrSetupUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L76K5AFQYD;
+				INFOPLIST_FILE = boradcastrSetupUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ask.answer.live.boradcastrSetupUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -592,7 +824,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		903B517B258992EF00615C75 /* Build configuration list for PBXProject "SLQDemo" */ = {
+		903B517B258992EF00615C75 /* Build configuration list for PBXProject "SLQVideoLive" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				903B5197258992F200615C75 /* Debug */,
@@ -601,7 +833,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		903B5199258992F200615C75 /* Build configuration list for PBXNativeTarget "SLQDemo" */ = {
+		903B5199258992F200615C75 /* Build configuration list for PBXNativeTarget "SLQVideoLive" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				903B519A258992F200615C75 /* Debug */,
@@ -610,16 +842,34 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		E44C2B9126943A3700C467A2 /* Build configuration list for PBXNativeTarget "boradcastrSetupUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E44C2B8F26943A3700C467A2 /* Debug */,
+				E44C2B9026943A3700C467A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E44C2B9226943A3700C467A2 /* Build configuration list for PBXNativeTarget "boradcastr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E44C2B8D26943A3700C467A2 /* Debug */,
+				E44C2B8E26943A3700C467A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		903B518C258992EF00615C75 /* SLQDemo.xcdatamodeld */ = {
+		903B518C258992EF00615C75 /* SLQVideoLive.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				903B518D258992EF00615C75 /* OCDemo1.xcdatamodel */,
 			);
 			currentVersion = 903B518D258992EF00615C75 /* OCDemo1.xcdatamodel */;
-			path = SLQDemo.xcdatamodeld;
+			path = SLQVideoLive.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
