@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SystemScreenRecordController.h"
 #import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
 @interface NSDate (Timestamp)
 + (NSString *)timestamp;
@@ -174,6 +175,7 @@
     if ([RPScreenRecorder sharedRecorder].recording) {
         NSLog(@"录制中...");
     }else{
+
         NSLog(@"1---[RPScreenRecorder sharedRecorder].microphoneEnabled:%d",[RPScreenRecorder sharedRecorder].microphoneEnabled);
         if(![RPScreenRecorder sharedRecorder].microphoneEnabled){
             [[RPScreenRecorder sharedRecorder] setMicrophoneEnabled:YES];
@@ -190,9 +192,7 @@
                     case RPSampleBufferTypeVideo:
                         NSLog(@"内部视频流");
                         AVAssetWriterStatus status = self.assetWriter.status;
-                        if (status == AVAssetWriterStatusFailed || status == AVAssetWriterStatusCompleted || status == AVAssetWriterStatusCancelled) {
-                            return;
-                        }
+                       
                         if (status == AVAssetWriterStatusUnknown) {
                             [self.assetWriter startWriting];
                             CMTime time = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
@@ -206,6 +206,9 @@
                                     [self stopRecording];
                                 }
                             }
+                        }
+                        if (status == AVAssetWriterStatusFailed || status == AVAssetWriterStatusCompleted || status == AVAssetWriterStatusCancelled) {
+                            return;
                         }
                         break;
                     case RPSampleBufferTypeAudioMic:
@@ -301,6 +304,7 @@
                     [self presentViewController:previewViewController animated:YES completion:nil];
                 }
             }];
+            [self stopRecording];
         }
   
     }
@@ -386,9 +390,11 @@
 - (void)initData {
     if ([self.assetWriter canAddInput:self.videoInput]) {
         [self.assetWriter addInput:self.videoInput];
-    }else{
-        NSLog(@"添加input失败");
     }
+    
+//    else{
+//        NSLog(@"添加input失败");
+//    }
 }
 - (AVAssetWriter *)assetWriter{
     if (!_assetWriter) {
@@ -449,13 +455,15 @@
     return _videoInput;
 }
 - (void)stopRecording {
-//    if (self.assetWriter.status == AVAssetWriterStatusWriting) {
-
+    if(self.assetWriter.status != AVAssetWriterStatusCompleted){
         [self.assetWriter finishWritingWithCompletionHandler:^{
             NSLog(@"结束写入数据");
+            self.assetWriter = nil;
+            self.videoInput = nil;
+            self.audioInput  = nil;
         }];
-//        [self.audioInput markAsFinished];
-//    }
+ 
+    }
 }
 
 @end
