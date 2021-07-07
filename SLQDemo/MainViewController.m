@@ -456,11 +456,13 @@
 }
 - (void)stopRecording {
     if(self.assetWriter.status != AVAssetWriterStatusCompleted){
+        __weak typeof(self) weakSelf = self;
         [self.assetWriter finishWritingWithCompletionHandler:^{
             NSLog(@"结束写入数据");
-            self.assetWriter = nil;
-            self.videoInput = nil;
-            self.audioInput  = nil;
+
+            weakSelf.videoInput = nil;
+            weakSelf.audioInput  = nil;
+            weakSelf.assetWriter = nil;
         }];
  
     }
