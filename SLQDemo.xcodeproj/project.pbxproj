@@ -40,6 +40,9 @@
 		E4E2BCA3266DCC9600FE4CFA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BCA2266DCC9600FE4CFA /* Accelerate.framework */; };
 		E4E2BCA5266DCC9C00FE4CFA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BCA4266DCC9C00FE4CFA /* OpenAL.framework */; };
 		E4F321092657616D007BA60A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F321082657616D007BA60A /* CloudKit.framework */; };
+		E4FA11A52696D17600ED5CDE /* NFCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FA11A32696D17600ED5CDE /* NFCTableViewCell.m */; };
+		E4FA11A62696D17600ED5CDE /* NFCTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FA11A42696D17600ED5CDE /* NFCTableViewCell.xib */; };
+		E4FA11AA2696E19F00ED5CDE /* NFCTagTools.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FA11A92696E19E00ED5CDE /* NFCTagTools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -114,6 +117,11 @@
 		E4E2BCA4266DCC9C00FE4CFA /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		E4F321072657614E007BA60A /* SLQDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SLQDemo.entitlements; sourceTree = "<group>"; };
 		E4F321082657616D007BA60A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		E4FA11A22696D17600ED5CDE /* NFCTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCTableViewCell.h; sourceTree = "<group>"; };
+		E4FA11A32696D17600ED5CDE /* NFCTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCTableViewCell.m; sourceTree = "<group>"; };
+		E4FA11A42696D17600ED5CDE /* NFCTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NFCTableViewCell.xib; sourceTree = "<group>"; };
+		E4FA11A82696E19E00ED5CDE /* NFCTagTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFCTagTools.h; sourceTree = "<group>"; };
+		E4FA11A92696E19E00ED5CDE /* NFCTagTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFCTagTools.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,8 +170,13 @@
 				903B5184258992EF00615C75 /* AppDelegate.m */,
 				903B5186258992EF00615C75 /* MainViewController.h */,
 				903B5187258992EF00615C75 /* MainViewController.m */,
+				E4FA11A22696D17600ED5CDE /* NFCTableViewCell.h */,
+				E4FA11A32696D17600ED5CDE /* NFCTableViewCell.m */,
+				E4FA11A42696D17600ED5CDE /* NFCTableViewCell.xib */,
 				E44C2AF02692A96200C467A2 /* NFCTools.h */,
 				E44C2AF12692A96200C467A2 /* NFCTools.m */,
+				E4FA11A82696E19E00ED5CDE /* NFCTagTools.h */,
+				E4FA11A92696E19E00ED5CDE /* NFCTagTools.m */,
 				E42B6C4A268F101A00DAC3D8 /* View */,
 				E46FAA54264D21D100FB8CF1 /* SLQPrecompile.h */,
 				E40ED65B265CA59D000BBC52 /* PrefixHeader.pch */,
@@ -344,6 +357,7 @@
 				903B5193258992F200615C75 /* LaunchScreen.storyboard in Resources */,
 				903B5190258992F200615C75 /* Assets.xcassets in Resources */,
 				903B518B258992EF00615C75 /* Main.storyboard in Resources */,
+				E4FA11A62696D17600ED5CDE /* NFCTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +385,8 @@
 				903B5185258992EF00615C75 /* AppDelegate.m in Sources */,
 				E46FAA63264D21D100FB8CF1 /* FMDatabasePool.m in Sources */,
 				E46FAA5F264D21D100FB8CF1 /* UIView+Extension.m in Sources */,
+				E4FA11AA2696E19F00ED5CDE /* NFCTagTools.m in Sources */,
+				E4FA11A52696D17600ED5CDE /* NFCTableViewCell.m in Sources */,
 				903B5196258992F200615C75 /* main.m in Sources */,
 				E40ED657265CA51E000BBC52 /* NSArray+CN.m in Sources */,
 				E42B6C47268F100B00DAC3D8 /* Test3ViewController.m in Sources */,

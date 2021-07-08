@@ -6,11 +6,12 @@
 //  Copyright © 2021 难说再见了. All rights reserved.
 //
 
-#import "NFCTools.h"
+#import "NFCTagTools.h"
 
-@interface NFCTools()<NFCNDEFReaderSessionDelegate>
+API_AVAILABLE(ios(13.0))
+@interface NFCTagTools()< NFCTagReaderSessionDelegate>
 @property (nonatomic,strong) NSString *alertMessage;
-@property (nonatomic,strong) NFCNDEFReaderSession *session;
+@property (nonatomic,strong) NFCTagReaderSession *session;
 @property (nonatomic,strong) NFCNDEFMessage *message;
 @property (nonatomic, copy) NFCFailedBlock failedBlock;
 @property (nonatomic, copy) NFCSuccessBlock successBlock;
@@ -19,14 +20,15 @@
 @property (nonatomic,assign) BOOL isWriting;
 
 @end
-@implementation NFCTools
-static NFCTools *_NFCTools;
+
+@implementation NFCTagTools
+static NFCTagTools *_NFCTagTools;
 +(instancetype)shareInstance{
-    if (!_NFCTools) {
-        _NFCTools = [[NFCTools alloc] init];
-        _NFCTools.alertMessage = @"把卡放到手机背面，开启读取NFC";
+    if (!_NFCTagTools) {
+        _NFCTagTools = [[NFCTagTools alloc] init];
+        _NFCTagTools.alertMessage = @"把卡放到手机背面，开启读取NFC";
     }
-    return _NFCTools;
+    return _NFCTagTools;
 }
 
 - (NFCToolsUseType)available{
@@ -47,10 +49,16 @@ static NFCTools *_NFCTools;
 }
 - (void)beginScan{
     if (NFCToolsUseTypeCanRead == [self available]) {
-        NFCNDEFReaderSession *session = [[NFCNDEFReaderSession alloc] initWithDelegate:self queue:nil invalidateAfterFirstRead:NO];
-        session.alertMessage = self.alertMessage;
-        [session beginSession];
-        self.session = session;
+        if (@available(iOS 13.0, *)) {
+            NFCTagReaderSession *session = [[NFCTagReaderSession alloc] initWithPollingOption:NFCPollingISO14443 | NFCPollingISO15693 delegate:self queue:nil];
+//            NFCTagReaderSession *session = [[NFCTagReaderSession alloc] initWithPollingOption:NFCPollingISO14443 | NFCPollingISO15693 | NFCPollingISO18092 delegate:self queue:nil];
+            session.alertMessage = self.alertMessage;
+            [session beginSession];
+            self.session = session;
+        } else {
+            // Fallback on earlier versions
+            NSLog(@"不支持写入NFC");
+        }
     }else{
         NSLog(@"不支持读取NFC");
     }
@@ -88,6 +96,102 @@ static NFCTools *_NFCTools;
     self.isWriting = YES;
     self.message = message;
     [self beginScan];
+}
+
+
+#pragma mark - NFCTagReaderSessionDelegate
+
+- (void)tagReaderSession:(NFCTagReaderSession *)session didDetectTags:(NSArray<__kindof id<NFCTag>> *)tags API_AVAILABLE(ios(13.0)){
+    NSLog(@"tagReaderSession: didDetectTags:%@ ",tags);
+    if(tags.count>1){
+        session.alertMessage = @"存在多个标签，继续扫描";
+        [session restartPolling];
+        return;
+    }
+
+    id tag = tags.firstObject;
+
+    
+    [session connectToTag:tag completionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            session.alertMessage = @"连接NFC标签失败";
+            [self stopScan];
+            if (self.failedBlock) {
+                self.failedBlock(error);
+            }
+            return;
+        }
+        [tag queryNDEFStatusWithCompletionHandler:^(NFCNDEFStatus status, NSUInteger capacity, NSError * _Nullable error) {
+            if(error){
+                session.alertMessage = @"读取NFC标签失败";
+                [self stopScan];
+                if (self.failedBlock) {
+                    self.failedBlock(error);
+                }
+                return;
+            }
+            
+            
+            if (status == NFCNDEFStatusNotSupported ){
+                session.alertMessage = @"标签不是NDEF格式";
+                [self stopScan];
+                return;
+            }
+            if (status == NFCNDEFStatusReadWrite) {
+                if (!self.isWriting) {
+                    [tag readNDEFWithCompletionHandler:^(NFCNDEFMessage * _Nullable message, NSError * _Nullable error) {
+                        if (error) {
+                            session.alertMessage = @"读取NFC标签失败";
+                            [self stopScan];
+                            if (self.failedBlock) {
+                                self.failedBlock(error);
+                            }
+                            return;
+                        }
+                        else if(message == nil){
+                            session.alertMessage = @"NFC标签为空";
+                            [self stopScan];
+                            return;
+                        }else{
+                            session.alertMessage = @"读取NFC标签成功";
+                            [self stopScan];
+                            NSLog(@"NFC内容：%@",message);
+                
+                            if (self.successBlock) {
+                                self.successBlock(message);
+                            }
+                        }
+                    }];
+                }else{
+                    //TODO: 写入失败
+                    [tag writeNDEF:self.message completionHandler:^(NSError * _Nullable error) {
+                        if (error) {
+                            session.alertMessage = @"NFC标签写入失败";
+                            [self stopScan];
+                            
+                            if (self.writeFailedBlock) {
+                                self.writeFailedBlock(error);
+                            }
+                        }else {
+                            session.alertMessage = @"NFC标签写入成功";
+                            [self stopScan];
+                            if (self.writeSuccessBlock) {
+                                self.writeSuccessBlock();
+                            }
+                        }
+                    }];
+                }
+                
+            }
+          
+        }];
+    }];
+}
+-(void)tagReaderSessionDidBecomeActive:(NFCTagReaderSession *)session API_AVAILABLE(ios(13.0)){
+    NSLog(@"tagReaderSessionDidBecomeActive");
+}
+-(void)tagReaderSession:(NFCTagReaderSession *)session didInvalidateWithError:(NSError *)error API_AVAILABLE(ios(13.0)){
+    NSLog(@"tagReaderSession: didInvalidateWithError：%@",error);
 }
 #pragma mark - NFCNDEFReaderSessionDelegate
 // 覆盖didDetectNDEFs，如果实现这个，didDetectNDEFs就不会调用
