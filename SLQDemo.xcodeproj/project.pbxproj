@@ -21,9 +21,6 @@
 		E42B6C3F268F0FFC00DAC3D8 /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42B6C3E268F0FFC00DAC3D8 /* Test1ViewController.m */; };
 		E42B6C43268F100400DAC3D8 /* Test2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42B6C42268F100400DAC3D8 /* Test2ViewController.m */; };
 		E42B6C47268F100B00DAC3D8 /* Test3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42B6C46268F100B00DAC3D8 /* Test3ViewController.m */; };
-		E44C2AEE2692941200C467A2 /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44C2AED2692941100C467A2 /* CoreNFC.framework */; };
-		E44C2AF22692A96200C467A2 /* NFCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = E44C2AF12692A96200C467A2 /* NFCTools.m */; };
-		E44C2B502693ED0700C467A2 /* SystemScreenRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = E44C2B4F2693ED0700C467A2 /* SystemScreenRecordController.m */; };
 		E46FAA5B264D21D100FB8CF1 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA3D264D21D100FB8CF1 /* SQLiteManager.m */; };
 		E46FAA5C264D21D100FB8CF1 /* NSObject+WHC_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA3F264D21D100FB8CF1 /* NSObject+WHC_Extension.m */; };
 		E46FAA5D264D21D100FB8CF1 /* WHC_KeyboardHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA43264D21D100FB8CF1 /* WHC_KeyboardHeaderView.m */; };
@@ -34,15 +31,28 @@
 		E46FAA62264D21D100FB8CF1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA4E264D21D100FB8CF1 /* FMDatabase.m */; };
 		E46FAA63264D21D100FB8CF1 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA52264D21D100FB8CF1 /* FMDatabasePool.m */; };
 		E46FAA64264D21D100FB8CF1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA53264D21D100FB8CF1 /* FMResultSet.m */; };
-		E4A354F02695572E00C1805C /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A354EF2695572D00C1805C /* Photos.framework */; };
 		E4E2BC9B266DCC7300FE4CFA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BC9A266DCC7300FE4CFA /* libz.tbd */; };
 		E4E2BC9D266DCC7C00FE4CFA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BC9C266DCC7C00FE4CFA /* libc++.tbd */; };
 		E4E2BC9F266DCC8500FE4CFA /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BC9E266DCC8500FE4CFA /* libresolv.tbd */; };
 		E4E2BCA1266DCC8D00FE4CFA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BCA0266DCC8D00FE4CFA /* libsqlite3.tbd */; };
 		E4E2BCA3266DCC9600FE4CFA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BCA2266DCC9600FE4CFA /* Accelerate.framework */; };
-		E4E2BCA5266DCC9C00FE4CFA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BCA4266DCC9C00FE4CFA /* OpenAL.framework */; };
-		E4F321092657616D007BA60A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F321082657616D007BA60A /* CloudKit.framework */; };
+		E4FA11B72696F33800ED5CDE /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FA11B62696F33800ED5CDE /* ShareViewController.m */; };
+		E4FA11BA2696F33800ED5CDE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4FA11B82696F33800ED5CDE /* MainInterface.storyboard */; };
+		E4FA11BE2696F33800ED5CDE /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E4FA11B32696F33800ED5CDE /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E4FA11CA2696F84E00ED5CDE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44C2B092692F8F900C467A2 /* UIKit.framework */; };
+		E4FA11CC2696F85600ED5CDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4FA11CB2696F85600ED5CDE /* Foundation.framework */; };
+		E4FA11D02696FBE000ED5CDE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4FA11CF2696FBE000ED5CDE /* Social.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E4FA11BC2696F33800ED5CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 903B5178258992EF00615C75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E4FA11B22696F33800ED5CDE;
+			remoteInfo = share;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		E443ECFE266A0C3D00289DA1 /* Embed App Clips */ = {
@@ -61,6 +71,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				E4FA11BE2696F33800ED5CDE /* share.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,12 +105,8 @@
 		E42B6C45268F100B00DAC3D8 /* Test3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test3ViewController.h; sourceTree = "<group>"; };
 		E42B6C46268F100B00DAC3D8 /* Test3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test3ViewController.m; sourceTree = "<group>"; };
 		E44C2AED2692941100C467A2 /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
-		E44C2AF02692A96200C467A2 /* NFCTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCTools.h; sourceTree = "<group>"; };
-		E44C2AF12692A96200C467A2 /* NFCTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCTools.m; sourceTree = "<group>"; };
 		E44C2AFC2692F8F900C467A2 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		E44C2B092692F8F900C467A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		E44C2B4E2693ED0700C467A2 /* SystemScreenRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemScreenRecordController.h; sourceTree = "<group>"; };
-		E44C2B4F2693ED0700C467A2 /* SystemScreenRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemScreenRecordController.m; sourceTree = "<group>"; };
 		E46FAA3A264D21D100FB8CF1 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
 		E46FAA3D264D21D100FB8CF1 /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
 		E46FAA3F264D21D100FB8CF1 /* NSObject+WHC_Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WHC_Extension.m"; sourceTree = "<group>"; };
@@ -131,6 +138,13 @@
 		E4E2BCA4266DCC9C00FE4CFA /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		E4F321072657614E007BA60A /* SLQDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SLQDemo.entitlements; sourceTree = "<group>"; };
 		E4F321082657616D007BA60A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		E4FA11B32696F33800ED5CDE /* share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4FA11B52696F33800ED5CDE /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		E4FA11B62696F33800ED5CDE /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		E4FA11B92696F33800ED5CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		E4FA11BB2696F33800ED5CDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4FA11CB2696F85600ED5CDE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E4FA11CF2696FBE000ED5CDE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,16 +152,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4E2BCA5266DCC9C00FE4CFA /* OpenAL.framework in Frameworks */,
-				E4A354F02695572E00C1805C /* Photos.framework in Frameworks */,
 				E4E2BCA3266DCC9600FE4CFA /* Accelerate.framework in Frameworks */,
-				E44C2AEE2692941200C467A2 /* CoreNFC.framework in Frameworks */,
 				E4E2BCA1266DCC8D00FE4CFA /* libsqlite3.tbd in Frameworks */,
 				E4E2BC9F266DCC8500FE4CFA /* libresolv.tbd in Frameworks */,
 				E4E2BC9D266DCC7C00FE4CFA /* libc++.tbd in Frameworks */,
 				E4E2BC9B266DCC7300FE4CFA /* libz.tbd in Frameworks */,
+				E4FA11CA2696F84E00ED5CDE /* UIKit.framework in Frameworks */,
+				E4FA11D02696FBE000ED5CDE /* Social.framework in Frameworks */,
 				E4009538260D73340082AE19 /* CoreFoundation.framework in Frameworks */,
-				E4F321092657616D007BA60A /* CloudKit.framework in Frameworks */,
+				E4FA11CC2696F85600ED5CDE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4FA11B02696F33800ED5CDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				903B5182258992EF00615C75 /* SLQDemo */,
+				E4FA11B42696F33800ED5CDE /* share */,
 				903B5181258992EF00615C75 /* Products */,
 				E4009536260D73340082AE19 /* Frameworks */,
 			);
@@ -167,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				903B5180258992EF00615C75 /* SLQDemo.app */,
+				E4FA11B32696F33800ED5CDE /* share.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,10 +202,6 @@
 				903B5184258992EF00615C75 /* AppDelegate.m */,
 				903B5186258992EF00615C75 /* MainViewController.h */,
 				903B5187258992EF00615C75 /* MainViewController.m */,
-				E44C2B4E2693ED0700C467A2 /* SystemScreenRecordController.h */,
-				E44C2B4F2693ED0700C467A2 /* SystemScreenRecordController.m */,
-				E44C2AF02692A96200C467A2 /* NFCTools.h */,
-				E44C2AF12692A96200C467A2 /* NFCTools.m */,
 				E42B6C4A268F101A00DAC3D8 /* View */,
 				E46FAA54264D21D100FB8CF1 /* SLQPrecompile.h */,
 				E40ED65B265CA59D000BBC52 /* PrefixHeader.pch */,
@@ -200,6 +218,8 @@
 		E4009536260D73340082AE19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4FA11CF2696FBE000ED5CDE /* Social.framework */,
+				E4FA11CB2696F85600ED5CDE /* Foundation.framework */,
 				E4A354EF2695572D00C1805C /* Photos.framework */,
 				E44C2AED2692941100C467A2 /* CoreNFC.framework */,
 				E4E2BCA4266DCC9C00FE4CFA /* OpenAL.framework */,
@@ -295,6 +315,17 @@
 			path = FMDB;
 			sourceTree = "<group>";
 		};
+		E4FA11B42696F33800ED5CDE /* share */ = {
+			isa = PBXGroup;
+			children = (
+				E4FA11B52696F33800ED5CDE /* ShareViewController.h */,
+				E4FA11B62696F33800ED5CDE /* ShareViewController.m */,
+				E4FA11B82696F33800ED5CDE /* MainInterface.storyboard */,
+				E4FA11BB2696F33800ED5CDE /* Info.plist */,
+			);
+			path = share;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,11 +342,29 @@
 			buildRules = (
 			);
 			dependencies = (
+				E4FA11BD2696F33800ED5CDE /* PBXTargetDependency */,
 			);
 			name = SLQDemo;
 			productName = OCDemo1;
 			productReference = 903B5180258992EF00615C75 /* SLQDemo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E4FA11B22696F33800ED5CDE /* share */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4FA11BF2696F33800ED5CDE /* Build configuration list for PBXNativeTarget "share" */;
+			buildPhases = (
+				E4FA11AF2696F33800ED5CDE /* Sources */,
+				E4FA11B02696F33800ED5CDE /* Frameworks */,
+				E4FA11B12696F33800ED5CDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = share;
+			productName = share;
+			productReference = E4FA11B32696F33800ED5CDE /* share.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -340,6 +389,9 @@
 							};
 						};
 					};
+					E4FA11B22696F33800ED5CDE = {
+						CreatedOnToolsVersion = 12.4;
+					};
 				};
 			};
 			buildConfigurationList = 903B517B258992EF00615C75 /* Build configuration list for PBXProject "SLQDemo" */;
@@ -356,6 +408,7 @@
 			projectRoot = "";
 			targets = (
 				903B517F258992EF00615C75 /* SLQDemo */,
+				E4FA11B22696F33800ED5CDE /* share */,
 			);
 		};
 /* End PBXProject section */
@@ -371,6 +424,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E4FA11B12696F33800ED5CDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4FA11BA2696F33800ED5CDE /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -381,7 +442,6 @@
 				903B5188258992EF00615C75 /* MainViewController.m in Sources */,
 				E46FAA5C264D21D100FB8CF1 /* NSObject+WHC_Extension.m in Sources */,
 				E42761FD264E221000AC8592 /* NSString+Size.m in Sources */,
-				E44C2AF22692A96200C467A2 /* NFCTools.m in Sources */,
 				E46FAA62264D21D100FB8CF1 /* FMDatabase.m in Sources */,
 				E42B6C43268F100400DAC3D8 /* Test2ViewController.m in Sources */,
 				E46FAA64264D21D100FB8CF1 /* FMResultSet.m in Sources */,
@@ -391,7 +451,6 @@
 				E46FAA5E264D21D100FB8CF1 /* WHC_KeyboardManager.m in Sources */,
 				E46FAA61264D21D100FB8CF1 /* FMDatabaseAdditions.m in Sources */,
 				E46FAA5D264D21D100FB8CF1 /* WHC_KeyboardHeaderView.m in Sources */,
-				E44C2B502693ED0700C467A2 /* SystemScreenRecordController.m in Sources */,
 				E46FAA5B264D21D100FB8CF1 /* SQLiteManager.m in Sources */,
 				903B5185258992EF00615C75 /* AppDelegate.m in Sources */,
 				E46FAA63264D21D100FB8CF1 /* FMDatabasePool.m in Sources */,
@@ -403,7 +462,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E4FA11AF2696F33800ED5CDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4FA11B72696F33800ED5CDE /* ShareViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4FA11BD2696F33800ED5CDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E4FA11B22696F33800ED5CDE /* share */;
+			targetProxy = E4FA11BC2696F33800ED5CDE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		903B5189258992EF00615C75 /* Main.storyboard */ = {
@@ -420,6 +495,14 @@
 				903B5192258992F200615C75 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E4FA11B82696F33800ED5CDE /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4FA11B92696F33800ED5CDE /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -589,6 +672,46 @@
 			};
 			name = Release;
 		};
+		E4FA11C02696F33800ED5CDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L76K5AFQYD;
+				INFOPLIST_FILE = share/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.technique.demo.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E4FA11C12696F33800ED5CDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L76K5AFQYD;
+				INFOPLIST_FILE = share/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.technique.demo.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -606,6 +729,15 @@
 			buildConfigurations = (
 				903B519A258992F200615C75 /* Debug */,
 				903B519B258992F200615C75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4FA11BF2696F33800ED5CDE /* Build configuration list for PBXNativeTarget "share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4FA11C02696F33800ED5CDE /* Debug */,
+				E4FA11C12696F33800ED5CDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
