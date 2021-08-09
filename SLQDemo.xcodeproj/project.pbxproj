@@ -31,6 +31,18 @@
 		E46FAA62264D21D100FB8CF1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA4E264D21D100FB8CF1 /* FMDatabase.m */; };
 		E46FAA63264D21D100FB8CF1 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA52264D21D100FB8CF1 /* FMDatabasePool.m */; };
 		E46FAA64264D21D100FB8CF1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA53264D21D100FB8CF1 /* FMResultSet.m */; };
+		E4A38F0026C1221200EEE803 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF426C1221100EEE803 /* AFSecurityPolicy.m */; };
+		E4A38F0126C1221200EEE803 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF426C1221100EEE803 /* AFSecurityPolicy.m */; };
+		E4A38F0226C1221200EEE803 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF726C1221100EEE803 /* AFHTTPSessionManager.m */; };
+		E4A38F0326C1221200EEE803 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF726C1221100EEE803 /* AFHTTPSessionManager.m */; };
+		E4A38F0426C1221200EEE803 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF926C1221100EEE803 /* AFURLRequestSerialization.m */; };
+		E4A38F0526C1221200EEE803 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF926C1221100EEE803 /* AFURLRequestSerialization.m */; };
+		E4A38F0626C1221200EEE803 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EFA26C1221100EEE803 /* AFURLResponseSerialization.m */; };
+		E4A38F0726C1221200EEE803 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EFA26C1221100EEE803 /* AFURLResponseSerialization.m */; };
+		E4A38F0826C1221200EEE803 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EFD26C1221100EEE803 /* AFURLSessionManager.m */; };
+		E4A38F0926C1221200EEE803 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EFD26C1221100EEE803 /* AFURLSessionManager.m */; };
+		E4A38F0A26C1221200EEE803 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EFE26C1221100EEE803 /* AFNetworkReachabilityManager.m */; };
+		E4A38F0B26C1221200EEE803 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EFE26C1221100EEE803 /* AFNetworkReachabilityManager.m */; };
 		E4E2BC9B266DCC7300FE4CFA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BC9A266DCC7300FE4CFA /* libz.tbd */; };
 		E4E2BC9D266DCC7C00FE4CFA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BC9C266DCC7C00FE4CFA /* libc++.tbd */; };
 		E4E2BC9F266DCC8500FE4CFA /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BC9E266DCC8500FE4CFA /* libresolv.tbd */; };
@@ -91,6 +103,7 @@
 		903B5194258992F200615C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		903B5195258992F200615C75 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4009537260D73340082AE19 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		E402ABFE26C0CF1100CBD077 /* share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = share.entitlements; sourceTree = "<group>"; };
 		E40ED655265CA51E000BBC52 /* NSArray+CN.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+CN.h"; sourceTree = "<group>"; };
 		E40ED656265CA51E000BBC52 /* NSArray+CN.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CN.m"; sourceTree = "<group>"; };
 		E40ED658265CA529000BBC52 /* NSDictionary+CN.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CN.h"; sourceTree = "<group>"; };
@@ -130,6 +143,20 @@
 		E46FAA53264D21D100FB8CF1 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		E46FAA54264D21D100FB8CF1 /* SLQPrecompile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLQPrecompile.h; sourceTree = "<group>"; };
 		E4A354EF2695572D00C1805C /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		E4A38EF226C1221100EEE803 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		E4A38EF326C1221100EEE803 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		E4A38EF426C1221100EEE803 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		E4A38EF526C1221100EEE803 /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCompatibilityMacros.h; sourceTree = "<group>"; };
+		E4A38EF626C1221100EEE803 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		E4A38EF726C1221100EEE803 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		E4A38EF826C1221100EEE803 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		E4A38EF926C1221100EEE803 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		E4A38EFA26C1221100EEE803 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		E4A38EFB26C1221100EEE803 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		E4A38EFC26C1221100EEE803 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		E4A38EFD26C1221100EEE803 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		E4A38EFE26C1221100EEE803 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		E4A38EFF26C1221200EEE803 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		E4E2BC9A266DCC7300FE4CFA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E4E2BC9C266DCC7C00FE4CFA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E4E2BC9E266DCC8500FE4CFA /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
@@ -236,6 +263,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E402ABFF26C1138600CBD077 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				E4A38EF626C1221100EEE803 /* AFNetworking.h */,
+				E4A38EF526C1221100EEE803 /* AFCompatibilityMacros.h */,
+				E4A38EF826C1221100EEE803 /* AFHTTPSessionManager.h */,
+				E4A38EF726C1221100EEE803 /* AFHTTPSessionManager.m */,
+				E4A38EFF26C1221200EEE803 /* AFNetworkReachabilityManager.h */,
+				E4A38EFE26C1221100EEE803 /* AFNetworkReachabilityManager.m */,
+				E4A38EF326C1221100EEE803 /* AFSecurityPolicy.h */,
+				E4A38EF426C1221100EEE803 /* AFSecurityPolicy.m */,
+				E4A38EF226C1221100EEE803 /* AFURLRequestSerialization.h */,
+				E4A38EF926C1221100EEE803 /* AFURLRequestSerialization.m */,
+				E4A38EFB26C1221100EEE803 /* AFURLResponseSerialization.h */,
+				E4A38EFA26C1221100EEE803 /* AFURLResponseSerialization.m */,
+				E4A38EFC26C1221100EEE803 /* AFURLSessionManager.h */,
+				E4A38EFD26C1221100EEE803 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
 		E42B6C4A268F101A00DAC3D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +300,7 @@
 		E46FAA37264D21D100FB8CF1 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				E402ABFF26C1138600CBD077 /* AFNetworking */,
 				E46FAA38264D21D100FB8CF1 /* DataBase */,
 				E46FAA3E264D21D100FB8CF1 /* WHC_KeyboradManager(OC) */,
 				E46FAA45264D21D100FB8CF1 /* Category */,
@@ -318,6 +367,7 @@
 		E4FA11B42696F33800ED5CDE /* share */ = {
 			isa = PBXGroup;
 			children = (
+				E402ABFE26C0CF1100CBD077 /* share.entitlements */,
 				E4FA11B52696F33800ED5CDE /* ShareViewController.h */,
 				E4FA11B62696F33800ED5CDE /* ShareViewController.m */,
 				E4FA11B82696F33800ED5CDE /* MainInterface.storyboard */,
@@ -444,18 +494,24 @@
 				E42761FD264E221000AC8592 /* NSString+Size.m in Sources */,
 				E46FAA62264D21D100FB8CF1 /* FMDatabase.m in Sources */,
 				E42B6C43268F100400DAC3D8 /* Test2ViewController.m in Sources */,
+				E4A38F0826C1221200EEE803 /* AFURLSessionManager.m in Sources */,
 				E46FAA64264D21D100FB8CF1 /* FMResultSet.m in Sources */,
 				E46FAA60264D21D100FB8CF1 /* FMDatabaseQueue.m in Sources */,
 				E42B6C3F268F0FFC00DAC3D8 /* Test1ViewController.m in Sources */,
 				E40ED65A265CA529000BBC52 /* NSDictionary+CN.m in Sources */,
 				E46FAA5E264D21D100FB8CF1 /* WHC_KeyboardManager.m in Sources */,
 				E46FAA61264D21D100FB8CF1 /* FMDatabaseAdditions.m in Sources */,
+				E4A38F0626C1221200EEE803 /* AFURLResponseSerialization.m in Sources */,
 				E46FAA5D264D21D100FB8CF1 /* WHC_KeyboardHeaderView.m in Sources */,
 				E46FAA5B264D21D100FB8CF1 /* SQLiteManager.m in Sources */,
 				903B5185258992EF00615C75 /* AppDelegate.m in Sources */,
 				E46FAA63264D21D100FB8CF1 /* FMDatabasePool.m in Sources */,
 				E46FAA5F264D21D100FB8CF1 /* UIView+Extension.m in Sources */,
 				903B5196258992F200615C75 /* main.m in Sources */,
+				E4A38F0226C1221200EEE803 /* AFHTTPSessionManager.m in Sources */,
+				E4A38F0426C1221200EEE803 /* AFURLRequestSerialization.m in Sources */,
+				E4A38F0A26C1221200EEE803 /* AFNetworkReachabilityManager.m in Sources */,
+				E4A38F0026C1221200EEE803 /* AFSecurityPolicy.m in Sources */,
 				E40ED657265CA51E000BBC52 /* NSArray+CN.m in Sources */,
 				E42B6C47268F100B00DAC3D8 /* Test3ViewController.m in Sources */,
 				903B518E258992EF00615C75 /* SLQDemo.xcdatamodeld in Sources */,
@@ -467,6 +523,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4FA11B72696F33800ED5CDE /* ShareViewController.m in Sources */,
+				E4A38F0126C1221200EEE803 /* AFSecurityPolicy.m in Sources */,
+				E4A38F0526C1221200EEE803 /* AFURLRequestSerialization.m in Sources */,
+				E4A38F0926C1221200EEE803 /* AFURLSessionManager.m in Sources */,
+				E4A38F0726C1221200EEE803 /* AFURLResponseSerialization.m in Sources */,
+				E4A38F0B26C1221200EEE803 /* AFNetworkReachabilityManager.m in Sources */,
+				E4A38F0326C1221200EEE803 /* AFHTTPSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,7 +622,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -614,7 +676,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -635,7 +697,7 @@
 					"$(PROJECT_DIR)/SLQVideoLive/Tool",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SLQDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -660,7 +722,7 @@
 					"$(PROJECT_DIR)/SLQVideoLive/Tool",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SLQDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -675,11 +737,12 @@
 		E4FA11C02696F33800ED5CDE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = share/share.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L76K5AFQYD;
 				INFOPLIST_FILE = share/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -695,11 +758,12 @@
 		E4FA11C12696F33800ED5CDE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = share/share.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L76K5AFQYD;
 				INFOPLIST_FILE = share/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

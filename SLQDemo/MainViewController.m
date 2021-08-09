@@ -18,6 +18,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"分享扩展";
 
+    NSUserDefaults *user = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.ask.answer.live"];
+    [user setBool:YES forKey:@"isLogin"];
+    [user setValue:@"xjsjsjjs-1h3j23hsdf0sd--sdfssdf" forKey:@"token"];
 }
 
 
