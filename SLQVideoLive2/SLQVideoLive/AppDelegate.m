@@ -6,19 +6,11 @@
 //  Copyright © 2021 song. All rights reserved.
 
 #import "AppDelegate.h"
-@import TXLiteAVSDK_Smart;
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    // 参考文档 https://cloud.tencent.com/document/product/454/7879
-    // 1 注册sdk
-    NSString *licenseURL = @"http://license.vod2.myqcloud.com/license/v1/473fca203a446d2ed145ddd02705e0c9/TXLiveSDK.licence";
-    NSString *licenseKey = @"56a8ddcd4d145a1625f9e376db7661f1";
-    
-    [TXLiveBase setLicenceURL:licenseURL key:licenseKey];
-    NSLog(@"SDK Version = %@", [TXLiveBase getSDKVersionStr]);
     return YES;
 }
 

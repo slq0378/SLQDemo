@@ -7,8 +7,6 @@
 
 #import "MainViewController.h"
 #import "SLQPrecompile.h"
-#import "SLQVideoPushViewController.h"
-#import "SLQVideoPlayViewController.h"
 #import <ReplayKit/ReplayKit.h>
 #import <AVKit/AVKit.h>
 #import <Photos/Photos.h>
@@ -127,18 +125,6 @@ API_AVAILABLE(ios(12.0))
     
 }
 
-- (void)watchVideo{
-    // 没有域名，暂时无法测试
-    SLQVideoPlayViewController* vc = [[SLQVideoPlayViewController alloc] init];
-    
-    [self.navigationController pushViewController:vc animated:YES];
-}
-- (void)videoPush{
-    
-    SLQVideoPushViewController* vc = [[SLQVideoPushViewController alloc] init];
-
-    [self.navigationController pushViewController:vc animated:YES];
-}
 //
 - (void)saveVideoWithUrl:(NSURL *)url {
     PHPhotoLibrary *photoLibrary = [PHPhotoLibrary sharedPhotoLibrary];

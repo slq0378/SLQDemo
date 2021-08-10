@@ -25,7 +25,6 @@
 		E44C2B8426943A3700C467A2 /* BroadcastSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E44C2B8326943A3700C467A2 /* BroadcastSetupViewController.m */; };
 		E44C2B8826943A3700C467A2 /* boradcastrSetupUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E44C2B7D26943A3600C467A2 /* boradcastrSetupUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E44C2B8B26943A3700C467A2 /* boradcastr.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E44C2B7126943A3600C467A2 /* boradcastr.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E44D58B1266F0064006C0A66 /* TXLiteAVSDK_Smart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44D58B0266F0064006C0A66 /* TXLiteAVSDK_Smart.framework */; };
 		E46FAA59264D21D100FB8CF1 /* SLQAskDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA39264D21D100FB8CF1 /* SLQAskDataModel.m */; };
 		E46FAA5A264D21D100FB8CF1 /* SLQAskDataModel.sql in Resources */ = {isa = PBXBuildFile; fileRef = E46FAA3C264D21D100FB8CF1 /* SLQAskDataModel.sql */; };
 		E46FAA5B264D21D100FB8CF1 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA3D264D21D100FB8CF1 /* SQLiteManager.m */; };
@@ -44,8 +43,6 @@
 		E4E2BCA1266DCC8D00FE4CFA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BCA0266DCC8D00FE4CFA /* libsqlite3.tbd */; };
 		E4E2BCA3266DCC9600FE4CFA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BCA2266DCC9600FE4CFA /* Accelerate.framework */; };
 		E4E2BCA5266DCC9C00FE4CFA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E2BCA4266DCC9C00FE4CFA /* OpenAL.framework */; };
-		E4E2BCAE266DF38100FE4CFA /* SLQVideoPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E2BCAD266DF38100FE4CFA /* SLQVideoPushViewController.m */; };
-		E4E2BCB4266E100A00FE4CFA /* SLQVideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E2BCB3266E100A00FE4CFA /* SLQVideoPlayViewController.m */; };
 		E4F321092657616D007BA60A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F321082657616D007BA60A /* CloudKit.framework */; };
 		E4F3210C26579413007BA60A /* SLQAskTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F3210B26579413007BA60A /* SLQAskTypeModel.m */; };
 		E4F3210E26579425007BA60A /* SLQAskTypeModel.sql in Resources */ = {isa = PBXBuildFile; fileRef = E4F3210D26579425007BA60A /* SLQAskTypeModel.sql */; };
@@ -123,7 +120,6 @@
 		E44C2B8226943A3700C467A2 /* BroadcastSetupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BroadcastSetupViewController.h; sourceTree = "<group>"; };
 		E44C2B8326943A3700C467A2 /* BroadcastSetupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastSetupViewController.m; sourceTree = "<group>"; };
 		E44C2B8526943A3700C467A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E44D58B0266F0064006C0A66 /* TXLiteAVSDK_Smart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_Smart.framework; sourceTree = "<group>"; };
 		E46FAA39264D21D100FB8CF1 /* SLQAskDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLQAskDataModel.m; sourceTree = "<group>"; };
 		E46FAA3A264D21D100FB8CF1 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
 		E46FAA3B264D21D100FB8CF1 /* SLQAskDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLQAskDataModel.h; sourceTree = "<group>"; };
@@ -157,10 +153,6 @@
 		E4E2BCA0266DCC8D00FE4CFA /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E4E2BCA2266DCC9600FE4CFA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		E4E2BCA4266DCC9C00FE4CFA /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		E4E2BCAC266DF38100FE4CFA /* SLQVideoPushViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLQVideoPushViewController.h; sourceTree = "<group>"; };
-		E4E2BCAD266DF38100FE4CFA /* SLQVideoPushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLQVideoPushViewController.m; sourceTree = "<group>"; };
-		E4E2BCB2266E100A00FE4CFA /* SLQVideoPlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLQVideoPlayViewController.h; sourceTree = "<group>"; };
-		E4E2BCB3266E100A00FE4CFA /* SLQVideoPlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLQVideoPlayViewController.m; sourceTree = "<group>"; };
 		E4F321072657614E007BA60A /* SLQVideoLive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SLQVideoLive.entitlements; sourceTree = "<group>"; };
 		E4F321082657616D007BA60A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		E4F3210A26579413007BA60A /* SLQAskTypeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLQAskTypeModel.h; sourceTree = "<group>"; };
@@ -177,7 +169,6 @@
 				E4E2BCA3266DCC9600FE4CFA /* Accelerate.framework in Frameworks */,
 				E4E2BCA1266DCC8D00FE4CFA /* libsqlite3.tbd in Frameworks */,
 				E4E2BC9F266DCC8500FE4CFA /* libresolv.tbd in Frameworks */,
-				E44D58B1266F0064006C0A66 /* TXLiteAVSDK_Smart.framework in Frameworks */,
 				E4E2BC9D266DCC7C00FE4CFA /* libc++.tbd in Frameworks */,
 				E4E2BC9B266DCC7300FE4CFA /* libz.tbd in Frameworks */,
 				E4009538260D73340082AE19 /* CoreFoundation.framework in Frameworks */,
@@ -233,10 +224,6 @@
 				E46FAA37264D21D100FB8CF1 /* Tool */,
 				903B5183258992EF00615C75 /* AppDelegate.h */,
 				903B5184258992EF00615C75 /* AppDelegate.m */,
-				E4E2BCB2266E100A00FE4CFA /* SLQVideoPlayViewController.h */,
-				E4E2BCB3266E100A00FE4CFA /* SLQVideoPlayViewController.m */,
-				E4E2BCAC266DF38100FE4CFA /* SLQVideoPushViewController.h */,
-				E4E2BCAD266DF38100FE4CFA /* SLQVideoPushViewController.m */,
 				903B5186258992EF00615C75 /* MainViewController.h */,
 				903B5187258992EF00615C75 /* MainViewController.m */,
 				E46FAA54264D21D100FB8CF1 /* SLQPrecompile.h */,
@@ -293,7 +280,6 @@
 		E46FAA37264D21D100FB8CF1 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				E44D58B0266F0064006C0A66 /* TXLiteAVSDK_Smart.framework */,
 				E46FAA38264D21D100FB8CF1 /* DataBase */,
 				E46FAA3E264D21D100FB8CF1 /* WHC_KeyboradManager(OC) */,
 				E46FAA45264D21D100FB8CF1 /* Category */,
@@ -508,7 +494,6 @@
 			files = (
 				E4F3210C26579413007BA60A /* SLQAskTypeModel.m in Sources */,
 				903B5188258992EF00615C75 /* MainViewController.m in Sources */,
-				E4E2BCB4266E100A00FE4CFA /* SLQVideoPlayViewController.m in Sources */,
 				E46FAA5C264D21D100FB8CF1 /* NSObject+WHC_Extension.m in Sources */,
 				E42761FD264E221000AC8592 /* NSString+Size.m in Sources */,
 				E46FAA62264D21D100FB8CF1 /* FMDatabase.m in Sources */,
@@ -525,7 +510,6 @@
 				E46FAA5F264D21D100FB8CF1 /* UIView+Extension.m in Sources */,
 				903B5196258992F200615C75 /* main.m in Sources */,
 				E40ED657265CA51E000BBC52 /* NSArray+CN.m in Sources */,
-				E4E2BCAE266DF38100FE4CFA /* SLQVideoPushViewController.m in Sources */,
 				903B518E258992EF00615C75 /* SLQVideoLive.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
