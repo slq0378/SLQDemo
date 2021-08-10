@@ -29,6 +29,10 @@
         [[UIApplication sharedApplication] setShortcutItems:@[item1,item2]];
     }
 }
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    NSLog(@"openUrl:%@",url);
+    return YES;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
