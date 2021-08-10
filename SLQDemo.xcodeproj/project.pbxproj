@@ -31,6 +31,14 @@
 		E46FAA62264D21D100FB8CF1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA4E264D21D100FB8CF1 /* FMDatabase.m */; };
 		E46FAA63264D21D100FB8CF1 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA52264D21D100FB8CF1 /* FMDatabasePool.m */; };
 		E46FAA64264D21D100FB8CF1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA53264D21D100FB8CF1 /* FMResultSet.m */; };
+		E485AE4626C22BCC003AA5C3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E485AE4526C22BCC003AA5C3 /* WidgetKit.framework */; };
+		E485AE4826C22BCC003AA5C3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E485AE4726C22BCC003AA5C3 /* SwiftUI.framework */; };
+		E485AE4B26C22BCC003AA5C3 /* WidgetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E485AE4A26C22BCC003AA5C3 /* WidgetExtension.swift */; };
+		E485AE4E26C22BCE003AA5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E485AE4D26C22BCE003AA5C3 /* Assets.xcassets */; };
+		E485AE5026C22BCE003AA5C3 /* WidgetExtension.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E485AE4C26C22BCC003AA5C3 /* WidgetExtension.intentdefinition */; };
+		E485AE5126C22BCE003AA5C3 /* WidgetExtension.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E485AE4C26C22BCC003AA5C3 /* WidgetExtension.intentdefinition */; };
+		E485AE5426C22BCE003AA5C3 /* WidgetExtensionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E485AE4426C22BCC003AA5C3 /* WidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E48AAFB626C278F40049D14B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E48AAFB526C278F40049D14B /* SceneDelegate.m */; };
 		E4A38F0026C1221200EEE803 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF426C1221100EEE803 /* AFSecurityPolicy.m */; };
 		E4A38F0126C1221200EEE803 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF426C1221100EEE803 /* AFSecurityPolicy.m */; };
 		E4A38F0226C1221200EEE803 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF726C1221100EEE803 /* AFHTTPSessionManager.m */; };
@@ -57,6 +65,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E485AE5226C22BCE003AA5C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 903B5178258992EF00615C75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E485AE4326C22BCC003AA5C3;
+			remoteInfo = WidgetExtensionExtension;
+		};
 		E4FA11BC2696F33800ED5CDE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 903B5178258992EF00615C75 /* Project object */;
@@ -83,6 +98,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				E485AE5426C22BCE003AA5C3 /* WidgetExtensionExtension.appex in Embed App Extensions */,
 				E4FA11BE2696F33800ED5CDE /* share.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -142,6 +158,16 @@
 		E46FAA52264D21D100FB8CF1 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		E46FAA53264D21D100FB8CF1 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		E46FAA54264D21D100FB8CF1 /* SLQPrecompile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLQPrecompile.h; sourceTree = "<group>"; };
+		E485AE4426C22BCC003AA5C3 /* WidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E485AE4526C22BCC003AA5C3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		E485AE4726C22BCC003AA5C3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		E485AE4A26C22BCC003AA5C3 /* WidgetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetExtension.swift; sourceTree = "<group>"; };
+		E485AE4C26C22BCC003AA5C3 /* WidgetExtension.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = WidgetExtension.intentdefinition; sourceTree = "<group>"; };
+		E485AE4D26C22BCE003AA5C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E485AE4F26C22BCE003AA5C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E485AE5826C25BC9003AA5C3 /* WidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
+		E48AAFB426C278F40049D14B /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		E48AAFB526C278F40049D14B /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		E4A354EF2695572D00C1805C /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		E4A38EF226C1221100EEE803 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
 		E4A38EF326C1221100EEE803 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
@@ -191,6 +217,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E485AE4126C22BCC003AA5C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E485AE4826C22BCC003AA5C3 /* SwiftUI.framework in Frameworks */,
+				E485AE4626C22BCC003AA5C3 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E4FA11B02696F33800ED5CDE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -206,6 +241,7 @@
 			children = (
 				903B5182258992EF00615C75 /* SLQDemo */,
 				E4FA11B42696F33800ED5CDE /* share */,
+				E485AE4926C22BCC003AA5C3 /* WidgetExtension */,
 				903B5181258992EF00615C75 /* Products */,
 				E4009536260D73340082AE19 /* Frameworks */,
 			);
@@ -216,6 +252,7 @@
 			children = (
 				903B5180258992EF00615C75 /* SLQDemo.app */,
 				E4FA11B32696F33800ED5CDE /* share.appex */,
+				E485AE4426C22BCC003AA5C3 /* WidgetExtensionExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,6 +264,8 @@
 				E46FAA37264D21D100FB8CF1 /* Tool */,
 				903B5183258992EF00615C75 /* AppDelegate.h */,
 				903B5184258992EF00615C75 /* AppDelegate.m */,
+				E48AAFB426C278F40049D14B /* SceneDelegate.h */,
+				E48AAFB526C278F40049D14B /* SceneDelegate.m */,
 				903B5186258992EF00615C75 /* MainViewController.h */,
 				903B5187258992EF00615C75 /* MainViewController.m */,
 				E42B6C4A268F101A00DAC3D8 /* View */,
@@ -259,6 +298,8 @@
 				E4009537260D73340082AE19 /* CoreFoundation.framework */,
 				E44C2AFC2692F8F900C467A2 /* ReplayKit.framework */,
 				E44C2B092692F8F900C467A2 /* UIKit.framework */,
+				E485AE4526C22BCC003AA5C3 /* WidgetKit.framework */,
+				E485AE4726C22BCC003AA5C3 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -364,6 +405,18 @@
 			path = FMDB;
 			sourceTree = "<group>";
 		};
+		E485AE4926C22BCC003AA5C3 /* WidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				E485AE5826C25BC9003AA5C3 /* WidgetExtensionExtension.entitlements */,
+				E485AE4A26C22BCC003AA5C3 /* WidgetExtension.swift */,
+				E485AE4C26C22BCC003AA5C3 /* WidgetExtension.intentdefinition */,
+				E485AE4D26C22BCE003AA5C3 /* Assets.xcassets */,
+				E485AE4F26C22BCE003AA5C3 /* Info.plist */,
+			);
+			path = WidgetExtension;
+			sourceTree = "<group>";
+		};
 		E4FA11B42696F33800ED5CDE /* share */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,11 +446,29 @@
 			);
 			dependencies = (
 				E4FA11BD2696F33800ED5CDE /* PBXTargetDependency */,
+				E485AE5326C22BCE003AA5C3 /* PBXTargetDependency */,
 			);
 			name = SLQDemo;
 			productName = OCDemo1;
 			productReference = 903B5180258992EF00615C75 /* SLQDemo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E485AE4326C22BCC003AA5C3 /* WidgetExtensionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E485AE5726C22BCE003AA5C3 /* Build configuration list for PBXNativeTarget "WidgetExtensionExtension" */;
+			buildPhases = (
+				E485AE4026C22BCC003AA5C3 /* Sources */,
+				E485AE4126C22BCC003AA5C3 /* Frameworks */,
+				E485AE4226C22BCC003AA5C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetExtensionExtension;
+			productName = WidgetExtensionExtension;
+			productReference = E485AE4426C22BCC003AA5C3 /* WidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		E4FA11B22696F33800ED5CDE /* share */ = {
 			isa = PBXNativeTarget;
@@ -422,6 +493,7 @@
 		903B5178258992EF00615C75 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "难说再见了";
 				TargetAttributes = {
@@ -438,6 +510,9 @@
 								enabled = 1;
 							};
 						};
+					};
+					E485AE4326C22BCC003AA5C3 = {
+						CreatedOnToolsVersion = 12.5.1;
 					};
 					E4FA11B22696F33800ED5CDE = {
 						CreatedOnToolsVersion = 12.4;
@@ -459,6 +534,7 @@
 			targets = (
 				903B517F258992EF00615C75 /* SLQDemo */,
 				E4FA11B22696F33800ED5CDE /* share */,
+				E485AE4326C22BCC003AA5C3 /* WidgetExtensionExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -471,6 +547,14 @@
 				903B5193258992F200615C75 /* LaunchScreen.storyboard in Resources */,
 				903B5190258992F200615C75 /* Assets.xcassets in Resources */,
 				903B518B258992EF00615C75 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E485AE4226C22BCC003AA5C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E485AE4E26C22BCE003AA5C3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +576,7 @@
 				903B5188258992EF00615C75 /* MainViewController.m in Sources */,
 				E46FAA5C264D21D100FB8CF1 /* NSObject+WHC_Extension.m in Sources */,
 				E42761FD264E221000AC8592 /* NSString+Size.m in Sources */,
+				E48AAFB626C278F40049D14B /* SceneDelegate.m in Sources */,
 				E46FAA62264D21D100FB8CF1 /* FMDatabase.m in Sources */,
 				E42B6C43268F100400DAC3D8 /* Test2ViewController.m in Sources */,
 				E4A38F0826C1221200EEE803 /* AFURLSessionManager.m in Sources */,
@@ -506,6 +591,7 @@
 				E46FAA5B264D21D100FB8CF1 /* SQLiteManager.m in Sources */,
 				903B5185258992EF00615C75 /* AppDelegate.m in Sources */,
 				E46FAA63264D21D100FB8CF1 /* FMDatabasePool.m in Sources */,
+				E485AE5126C22BCE003AA5C3 /* WidgetExtension.intentdefinition in Sources */,
 				E46FAA5F264D21D100FB8CF1 /* UIView+Extension.m in Sources */,
 				903B5196258992F200615C75 /* main.m in Sources */,
 				E4A38F0226C1221200EEE803 /* AFHTTPSessionManager.m in Sources */,
@@ -515,6 +601,15 @@
 				E40ED657265CA51E000BBC52 /* NSArray+CN.m in Sources */,
 				E42B6C47268F100B00DAC3D8 /* Test3ViewController.m in Sources */,
 				903B518E258992EF00615C75 /* SLQDemo.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E485AE4026C22BCC003AA5C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E485AE5026C22BCE003AA5C3 /* WidgetExtension.intentdefinition in Sources */,
+				E485AE4B26C22BCC003AA5C3 /* WidgetExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +630,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E485AE5326C22BCE003AA5C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E485AE4326C22BCC003AA5C3 /* WidgetExtensionExtension */;
+			targetProxy = E485AE5226C22BCE003AA5C3 /* PBXContainerItemProxy */;
+		};
 		E4FA11BD2696F33800ED5CDE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E4FA11B22696F33800ED5CDE /* share */;
@@ -687,6 +787,7 @@
 		903B519A258992F200615C75 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SLQDemo/SLQDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -712,6 +813,7 @@
 		903B519B258992F200615C75 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SLQDemo/SLQDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -730,6 +832,60 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.technique.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E485AE5526C22BCE003AA5C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L76K5AFQYD;
+				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.technique.demo.WidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E485AE5626C22BCE003AA5C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L76K5AFQYD;
+				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.technique.demo.WidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -793,6 +949,15 @@
 			buildConfigurations = (
 				903B519A258992F200615C75 /* Debug */,
 				903B519B258992F200615C75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E485AE5726C22BCE003AA5C3 /* Build configuration list for PBXNativeTarget "WidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E485AE5526C22BCE003AA5C3 /* Debug */,
+				E485AE5626C22BCE003AA5C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

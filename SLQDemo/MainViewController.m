@@ -16,7 +16,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"分享扩展";
+    self.title = @"我的小窗口";
 
     NSUserDefaults *user = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.ask.answer.live"];
     [user setBool:YES forKey:@"isLogin"];
