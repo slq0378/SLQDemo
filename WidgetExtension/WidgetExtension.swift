@@ -45,31 +45,91 @@ struct SimpleEntry: TimelineEntry {
 
 // View，小组件的界面
 struct WidgetExtensionEntryView : View {
+    @Environment(\.widgetFamily) var family:WidgetFamily
     var entry: Provider.Entry
-
+    @ViewBuilder
     var body: some View {
-        // 深度布局，屏幕深度
-        ZStack(alignment: .center, content: {
-            // 背景图
-            Image("2").resizable().aspectRatio(contentMode: .fit)
-            //  水平
-            HStack(alignment: .center, spacing: 5, content: {
-                // 左侧图
-                Image("1").frame(width: 80, height: 80, alignment: .center).aspectRatio(contentMode: .fit).cornerRadius(10.0)
-                // 垂直
-                VStack(alignment: .center, spacing: 5, content: {
-                    // 右侧文字
-                    Text("小组件1").foregroundColor(.blue)
-                    Text("小组件2").foregroundColor(.blue).lineLimit(2)
-                })
+        switch family {
+        case .systemSmall:
+            // 深度布局，屏幕深度
+            ZStack(alignment: .center, content: {
+                // 背景图
+                Image("2").resizable().aspectRatio(contentMode: .fill)
+                //  水平
+                HStack(alignment: .center, spacing: 5, content: {
+                    // 左侧图
+                    Image("1").frame(width: 80, height: 80, alignment: .center).aspectRatio(contentMode: .fit).cornerRadius(10.0)
+                    // 垂直
+                    VStack(alignment: .center, spacing: 5, content: {
+                        // 右侧文字
+                        Text("小组件1").foregroundColor(.blue)
+                        Text("小组件2").foregroundColor(.blue).lineLimit(2)
+                    })
 
-            })
-        }).widgetURL(URL(string: "widgetExtensionDemo://test1"))
+                })
+            }).widgetURL(URL(string: "widgetExtensionDemo://test1"))
+        case .systemMedium:
+            // 深度布局，屏幕深度
+            ZStack(alignment: .center, content: {
+                // 背景图
+                Image("2").resizable().aspectRatio(contentMode: .fill)
+                //  水平
+                HStack(alignment: .top, spacing: 5, content: {
+                    // 左侧图
+                    Image("1").resizable().aspectRatio(contentMode: .fit).frame(width: 200, height: 80, alignment: .leading).cornerRadius(10.0).foregroundColor(.blue)
+                    // 垂直
+                    VStack(alignment: .trailing, spacing: 5, content: {
+                        // 右侧文字
+                        Text("zh组件1").foregroundColor(.blue)
+                        Text("小组件2").foregroundColor(.blue).lineLimit(2)
+                    }).foregroundColor(.gray)
+
+                })
+            }).widgetURL(URL(string: "widgetExtensionDemo://test2"))
+        case .systemLarge:
+            // 深度布局，屏幕深度
+            ZStack(alignment: .center, content: {
+                // 背景图
+                Image("2").resizable().aspectRatio(contentMode: .fill)
+                //  水平
+                HStack(alignment: .center, spacing: 5, content: {
+                    // 左侧图
+                    Image("1").aspectRatio(contentMode: .fit).cornerRadius(10.0).frame(width: 200, height: 100, alignment: .leading)
+                    // 垂直
+                    VStack(alignment: .center, spacing: 5, content: {
+                        // 右侧文字
+                        Text("小组件1").foregroundColor(.blue)
+                        Text("小组件2").foregroundColor(.blue).lineLimit(2)
+                    })
+
+                }).foregroundColor(.blue)
+            }).widgetURL(URL(string: "widgetExtensionDemo://test3"))
+            
+        default:
+            // 深度布局，屏幕深度
+            ZStack(alignment: .center, content: {
+                // 背景图
+                Image("2").resizable().aspectRatio(contentMode: .fit)
+                //  水平
+                HStack(alignment: .center, spacing: 5, content: {
+                    // 左侧图
+                    Image("1").frame(width: 80, height: 80, alignment: .center).aspectRatio(contentMode: .fit).cornerRadius(10.0)
+                    // 垂直
+                    VStack(alignment: .center, spacing: 5, content: {
+                        // 右侧文字
+                        Text("小组件1").foregroundColor(.blue)
+                        Text("小组件2").foregroundColor(.blue).lineLimit(2)
+                    })
+
+                })
+            }).widgetURL(URL(string: "widgetExtensionDemo://test1"))
+        }
+
     }
 }
 
 // 程序入口，初始化相关信息，如Provider，View等
-@main
+//@main
 struct WidgetExtension: Widget {
     let kind: String = "WidgetExtension"
 
@@ -87,6 +147,120 @@ struct WidgetExtension_Previews: PreviewProvider {
         
         // 设置小组件尺寸 systemSmall systemMedium systemLarge
         WidgetExtensionEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+    }
+}
+
+// 更多小组件
+@main
+struct Widgets:WidgetBundle {
+    init() {
+        
+    }
+
+    @WidgetBundleBuilder
+    var body: some Widget{ // 最多创建5次，也就是15个小组件
+        WidgetExtension()
+        CustomWidget()
+        CustomWidget()
+        CustomWidget()
+        CustomWidget()
+    }
+    
+}
+
+struct CustomWidget:Widget {
+    var kind:String="自定义组件"
+    var body: some WidgetConfiguration{
+        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+            CustomEntryView(entry:entry)
+        }
+        .configurationDisplayName("自定义更多组件")
+        .description("ios14自定义更多小组件")
+    }
+    
+}
+// 自定义Ui
+struct CustomEntryView:View {
+    @Environment(\.widgetFamily) var family:WidgetFamily
+    var entry: Provider.Entry
+    @ViewBuilder
+    var body: some View {
+        switch family {
+        case .systemSmall:
+            // 深度布局，屏幕深度
+            ZStack(alignment: .center, content: {
+                // 背景图
+                Image("2").resizable().aspectRatio(contentMode: .fill)
+                //  水平
+                HStack(alignment: .center, spacing: 5, content: {
+                    // 左侧图
+                    Image("1").frame(width: 80, height: 80, alignment: .center).aspectRatio(contentMode: .fit).cornerRadius(10.0)
+                    // 垂直
+                    VStack(alignment: .center, spacing: 5, content: {
+                        // 右侧文字
+                        Text("小组件1").foregroundColor(.blue)
+                        Text("小组件2").foregroundColor(.blue).lineLimit(2)
+                    })
+
+                })
+            }).widgetURL(URL(string: "widgetExtensionDemo://test1"))
+        case .systemMedium:
+            // 深度布局，屏幕深度
+            ZStack(alignment: .center, content: {
+                // 背景图
+                Image("2").resizable().aspectRatio(contentMode: .fill)
+                //  水平
+                HStack(alignment: .top, spacing: 5, content: {
+                    // 左侧图
+                    Image("1").resizable().aspectRatio(contentMode: .fit).frame(width: 200, height: 80, alignment: .leading).cornerRadius(10.0).foregroundColor(.blue)
+                    // 垂直
+                    VStack(alignment: .trailing, spacing: 5, content: {
+                        // 右侧文字
+                        Text("zh组件1").foregroundColor(.blue)
+                        Text("小组件2").foregroundColor(.blue).lineLimit(2)
+                    }).foregroundColor(.gray)
+
+                })
+            }).widgetURL(URL(string: "widgetExtensionDemo://test2"))
+        case .systemLarge:
+            // 深度布局，屏幕深度
+            ZStack(alignment: .center, content: {
+                // 背景图
+                Image("2").resizable().aspectRatio(contentMode: .fill)
+                //  水平
+                HStack(alignment: .center, spacing: 5, content: {
+                    // 左侧图
+                    Image("1").aspectRatio(contentMode: .fit).cornerRadius(10.0).frame(width: 200, height: 100, alignment: .leading)
+                    // 垂直
+                    VStack(alignment: .center, spacing: 5, content: {
+                        // 右侧文字
+                        Text("小组件1").foregroundColor(.blue)
+                        Text("小组件2").foregroundColor(.blue).lineLimit(2)
+                    })
+
+                }).foregroundColor(.blue)
+            }).widgetURL(URL(string: "widgetExtensionDemo://test3"))
+            
+        default:
+            // 深度布局，屏幕深度
+            ZStack(alignment: .center, content: {
+                // 背景图
+                Image("2").resizable().aspectRatio(contentMode: .fit)
+                //  水平
+                HStack(alignment: .center, spacing: 5, content: {
+                    // 左侧图
+                    Image("1").frame(width: 80, height: 80, alignment: .center).aspectRatio(contentMode: .fit).cornerRadius(10.0)
+                    // 垂直
+                    VStack(alignment: .center, spacing: 5, content: {
+                        // 右侧文字
+                        Text("小组件1").foregroundColor(.blue)
+                        Text("小组件2").foregroundColor(.blue).lineLimit(2)
+                    })
+
+                })
+            }).widgetURL(URL(string: "widgetExtensionDemo://test1"))
+        }
+
     }
 }
