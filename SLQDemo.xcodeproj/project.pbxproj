@@ -31,7 +31,6 @@
 		E46FAA62264D21D100FB8CF1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA4E264D21D100FB8CF1 /* FMDatabase.m */; };
 		E46FAA63264D21D100FB8CF1 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA52264D21D100FB8CF1 /* FMDatabasePool.m */; };
 		E46FAA64264D21D100FB8CF1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA53264D21D100FB8CF1 /* FMResultSet.m */; };
-		E48AAFB626C278F40049D14B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E48AAFB526C278F40049D14B /* SceneDelegate.m */; };
 		E4A38F0026C1221200EEE803 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF426C1221100EEE803 /* AFSecurityPolicy.m */; };
 		E4A38F0226C1221200EEE803 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF726C1221100EEE803 /* AFHTTPSessionManager.m */; };
 		E4A38F0426C1221200EEE803 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A38EF926C1221100EEE803 /* AFURLRequestSerialization.m */; };
@@ -126,8 +125,6 @@
 		E46FAA54264D21D100FB8CF1 /* SLQPrecompile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLQPrecompile.h; sourceTree = "<group>"; };
 		E485AE4526C22BCC003AA5C3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		E485AE4726C22BCC003AA5C3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		E48AAFB426C278F40049D14B /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		E48AAFB526C278F40049D14B /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		E4A354EF2695572D00C1805C /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		E4A38EF226C1221100EEE803 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
 		E4A38EF326C1221100EEE803 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
@@ -203,8 +200,6 @@
 				E46FAA37264D21D100FB8CF1 /* Tool */,
 				903B5183258992EF00615C75 /* AppDelegate.h */,
 				903B5184258992EF00615C75 /* AppDelegate.m */,
-				E48AAFB426C278F40049D14B /* SceneDelegate.h */,
-				E48AAFB526C278F40049D14B /* SceneDelegate.m */,
 				903B5186258992EF00615C75 /* MainViewController.h */,
 				903B5187258992EF00615C75 /* MainViewController.m */,
 				E42B6C4A268F101A00DAC3D8 /* View */,
@@ -433,7 +428,6 @@
 				903B5188258992EF00615C75 /* MainViewController.m in Sources */,
 				E46FAA5C264D21D100FB8CF1 /* NSObject+WHC_Extension.m in Sources */,
 				E42761FD264E221000AC8592 /* NSString+Size.m in Sources */,
-				E48AAFB626C278F40049D14B /* SceneDelegate.m in Sources */,
 				E46FAA62264D21D100FB8CF1 /* FMDatabase.m in Sources */,
 				E42B6C43268F100400DAC3D8 /* Test2ViewController.m in Sources */,
 				E4A38F0826C1221200EEE803 /* AFURLSessionManager.m in Sources */,
@@ -601,7 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SLQDemo/SLQDemo.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L76K5AFQYD;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -617,7 +611,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.teligen.communicate.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -626,7 +620,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SLQDemo/SLQDemo.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L76K5AFQYD;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -642,7 +636,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.teligen.communicate.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

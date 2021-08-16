@@ -6,11 +6,9 @@
 //  Copyright © 2021 song. All rights reserved.
 
 #import "AppDelegate.h"
-#import "Test1ViewController.h"
-#import "Test2ViewController.h"
-#import "Test3ViewController.h"
 #import "MainViewController.h"
 #import <PushKit/PushKit.h>
+#import <CallKit/CallKit.h>
 #import <UserNotifications/UserNotifications.h>
 @interface AppDelegate()< PKPushRegistryDelegate, UNUserNotificationCenterDelegate>
 
@@ -21,53 +19,39 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-//    [self setup3DTouch];
     [self registerPushNotification];
+    [self checkUserNotificationEnable];
     
-    
-//    [self showLocalPush:@{
-//        @"alert":@"计算机三级"
-//    }];
+    if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
+        //使用Pushkit的VOIP专享推送
+        PKPushRegistry *pushRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];
+        pushRegistry.delegate = self;
+        pushRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
+        //        NSLog(@"registerPushNotification 8.0");
+    }
+
     return YES;
 }
 
 #pragma mark - 不同版本的推送注册
 - (void)registerPushNotification{
     UIApplication *application = [UIApplication sharedApplication];
-
-    //远程推送
     if ([UIDevice currentDevice].systemVersion.doubleValue >= 10.0){
         [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:(UNAuthorizationOptionBadge+UNAuthorizationOptionAlert+UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
-            if (granted) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [application registerForRemoteNotifications];
-                });
-            }
+            
         }];
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self; // 这个很关键，一定记得添加
         [application registerForRemoteNotifications];
     }else if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
         UIUserNotificationType types = UIUserNotificationTypeSound|UIUserNotificationTypeBadge|UIUserNotificationTypeAlert;
         UIUserNotificationSettings *setting = [UIUserNotificationSettings settingsForTypes:types categories:nil];
         [application registerUserNotificationSettings:setting];
-        //      注册远程通知
         [application registerForRemoteNotifications];
-        
-    }else{
-        //  iOS8之前,注册远程通知
-        UIRemoteNotificationType types = UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound;
-        [application registerForRemoteNotificationTypes:types];
     }
 }
 
 /**
  *  但APNs服务器返回deviceToken的时候调用该方法
- *
- *  @param application 应用
- *  @param deviceToken deviceToken 包含(手机的UUID,应用BundleID)
- 
- <e792c765 7eeb42f7 7c689f92 58e4cd3d 646adc55 c7a9eb49 d7b8ef8f c4f34ec4>
- <4ba408ae 5a6f957c 4aade33a 37598c8b 17ff9d4f 7c274dac ab83442c b69a3ac1>
- deviceToken 不包含 “<” 和 ">"
  */
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
@@ -90,20 +74,30 @@
     
     NSString *receiveToken = getDeviceToken();
     
-    NSLog(@"device token -->>%@",receiveToken);
+    NSLog(@"---->>>>device token：%@",receiveToken);
     
-    if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
-        //使用Pushkit的VOIP专享推送
-        PKPushRegistry *pushRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];
-        pushRegistry.delegate = self;
-        pushRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
-//        NSLog(@"registerPushNotification 8.0");
-    }
+//    if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
+//        //使用Pushkit的VOIP专享推送
+//        PKPushRegistry *pushRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];
+//        pushRegistry.delegate = self;
+//        pushRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
+////        NSLog(@"registerPushNotification 8.0");
+//    }
     
 }
+#pragma mark - 收到推送，或者点击推送会走这个方法的，如果实现了更高版本方法，不会走，iOS8-iOS10
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     NSLog(@"userInfo : %@", userInfo);
+//    {
+//        aps =     {
+//            alert =         {
+//                body = "2This is content";
+//                subtitle = "Five Card Draw";
+//                title = "2This is title";
+//            };
+//            identifier = 12321;
+//    }
     if (application.applicationState == UIApplicationStateActive) {
         return;
     }
@@ -116,13 +110,17 @@
     
     completionHandler(UIBackgroundFetchResultNewData);
 }
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
-    NSLog(@">>>>>userinfo<<<<<");
+#pragma mark - UNUserNotificationCenterDelegate  >= iOS10.0
+// 前台收到推送
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
+    NSLog(@"收到推送（前台）---->%@",notification.request.content);
+    completionHandler(UNNotificationPresentationOptionAlert);
 }
 
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-    NSLog(@"======+++++didReceiveLocalNotification--%@",notification.userInfo);
+// 点击推送
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler{
+    NSLog(@"点击推送---->%@",response);
+    completionHandler();
 }
 
 #pragma mark pushkit delegate >= iOS8.0
@@ -146,103 +144,172 @@
     NSLog(@"---->>>>voip token: %@",pkToken);
     
 }
-
+#pragma mark pushkit delegate >= iOS8.0
+// 接受消息
 - (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(PKPushType)type{
     NSLog(@"推送---> %@",payload.dictionaryPayload);
     
     NSDictionary *dict = payload.dictionaryPayload;
     NSMutableDictionary *apsDict = [[dict objectForKey:@"aps"] mutableCopy];
-    
-    //本地通知
-    [self showLocalPush:apsDict];
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self addLocalNotice:apsDict];
+    });
+}
+- (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(PKPushType)type withCompletionHandler:(void(^)(void))completion NS_AVAILABLE_IOS(11_0){
+    NSLog(@"推送 ios 11---> %@,%@",payload.dictionaryPayload,type);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSDictionary *dict = payload.dictionaryPayload;
+        NSMutableDictionary *apsDict = [[dict objectForKey:@"aps"] mutableCopy];
+        [self addLocalNotice:apsDict];
+        completion();
+    });
 }
 
-
-- (void)showLocalPush:(NSDictionary *)msgDict{
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    UILocalNotification *localNotification = [[UILocalNotification alloc]init];
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    localNotification.applicationIconBadgeNumber = 1;
-    localNotification.alertBody = msgDict[@"alert"];
-    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
-}
-
-#pragma mark - UNUserNotificationCenterDelegate  >= iOS10.0
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
-    NSLog(@"willPresentNotification---->");
-}
-
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler{
-    NSLog(@"didReceiveNotificationResponse---->%@",response);
-    // iOS 10 点击通知会调用这个，无论是否用UNUserNotificationCenter
-    
-    completionHandler();
-}
-
-#pragma mark - 3D
-- (void)setup3DTouch{
-    // 判断是否支持3DTouch
-    
-    if ([[UIApplication sharedApplication] respondsToSelector:@selector(shortcutItems)]) {
-        UIApplicationShortcutIcon *icon1 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd];
-        UIApplicationShortcutIcon *icon2 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd];
-        UIMutableApplicationShortcutItem *item1 = [[UIMutableApplicationShortcutItem alloc] initWithType:@"addCar" localizedTitle:@"新增1" localizedSubtitle:nil icon:icon1 userInfo:nil];
-        UIMutableApplicationShortcutItem *item2 = [[UIMutableApplicationShortcutItem alloc] initWithType:@"addPerson" localizedTitle:@"新增2" localizedSubtitle:nil icon:icon2 userInfo:nil];
-        [[UIApplication sharedApplication] setShortcutItems:@[item1,item2]];
-    }
-}
-
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
-    NSLog(@"openURL:%@",url);
-
-    return  YES;
-}
-
-
-
-
-#pragma mark - 3DTouch action
-
-- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
-    
-    NSString *type = shortcutItem.type;
-    NSLog(@"shortcutItem：%@",type);
-
-    if ([type isEqualToString:@"addCar"]) {
-    
-        UINavigationController *rootViewController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-        NSArray *viewControllers = rootViewController.viewControllers;
-        MainViewController *navi = viewControllers[0];
-        Test1ViewController *vc = [[Test1ViewController alloc] init];
-        [navi.navigationController pushViewController:vc animated:YES];
+// 添加本地推送，voip默认是没有推送的
+- (void)addLocalNotice:(NSMutableDictionary *)apsDict {
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+        // 标题
+        content.title = apsDict[@"alert"][@"title"];
+        content.subtitle = apsDict[@"alert"][@"title"];
+        // 内容
+        content.body = apsDict[@"alert"][@"body"];
+        // 声音
+       // 默认声音
+         content.sound = [UNNotificationSound defaultSound];
+     // 添加自定义声音
+//       content.sound = [UNNotificationSound soundNamed:@"Alert_ActivityGoalAttained_Salient_Haptic.caf"];
+        // 角标 （我这里测试的角标无效，暂时没找到原因）
+        content.badge = @1;
+        // 多少秒后发送,可以将固定的日期转化为时间
+        NSTimeInterval time = [[NSDate dateWithTimeIntervalSinceNow:1] timeIntervalSinceNow];
+//        NSTimeInterval time = 10;
+        // repeats，是否重复，如果重复的话时间必须大于60s，要不会报错
+        UNPushNotificationTrigger *trigger = [[UNPushNotificationTrigger alloc] initWithCoder:nil];
         
+        /*
+        //如果想重复可以使用这个,按日期
+        // 周一早上 8：00 上班
+        NSDateComponents *components = [[NSDateComponents alloc] init];
+        // 注意，weekday默认是从周日开始
+        components.weekday = 2;
+        components.hour = 8;
+        UNCalendarNotificationTrigger *calendarTrigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:YES];
+        */
+        // 添加通知的标识符，可以用于移除，更新等操作
+        NSString *identifier = @"noticeId";
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
+        
+        [center addNotificationRequest:request withCompletionHandler:^(NSError *_Nullable error) {
+            NSLog(@"成功添加推送");
+        }];
     }else {
-        UINavigationController *rootViewController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-        NSArray *viewControllers = rootViewController.viewControllers;
-        MainViewController *navi = viewControllers[0];
-        Test2ViewController *vc = [[Test2ViewController alloc] init];
-        [navi.navigationController pushViewController:vc animated:YES];
+        UILocalNotification *notif = [[UILocalNotification alloc] init];
+        // 发出推送的日期
+        notif.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
+        // 推送的内容
+        notif.alertBody = apsDict[@"alert"][@"body"];
+        // 可以添加特定信息
+        notif.userInfo = @{@"noticeId":@"00001"};
+        // 角标
+        notif.applicationIconBadgeNumber = 1;
+        // 提示音
+        notif.soundName = UILocalNotificationDefaultSoundName;
+        // 每周循环提醒
+        notif.repeatInterval = NSCalendarUnitWeekOfYear;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notif];
     }
 }
 
 
-#pragma mark - UISceneSession lifecycle
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
-    NSLog(@"%s",__FUNCTION__);
-    // Called when a new scene session is being created.
-    // Use this method to select a configuration to create the new scene with.
-    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
-}
- 
- 
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    
-      NSLog(@"%s",__FUNCTION__);
 
+
+// 移除某一个指定的通知
+- (void)removeOneNotificationWithID:(NSString *)noticeId {
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
+            for (UNNotificationRequest *req in requests){
+                NSLog(@"存在的ID:%@\n",req.identifier);
+            }
+            NSLog(@"移除currentID:%@",noticeId);
+        }];
+        
+        [center removePendingNotificationRequestsWithIdentifiers:@[noticeId]];
+    }else {
+        NSArray *array=[[UIApplication sharedApplication] scheduledLocalNotifications];
+        for (UILocalNotification *localNotification in array){
+            NSDictionary *userInfo = localNotification.userInfo;
+            NSString *obj = [userInfo objectForKey:@"noticeId"];
+            if ([obj isEqualToString:noticeId]) {
+                [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
+            }
+        }
+    }
 }
+
+// 移除所有通知
+- (void)removeAllNotification {
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center removeAllPendingNotificationRequests];
+    }else {
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    }
+}
+
+- (void)checkUserNotificationEnable { // 判断用户是否允许接收通知
+    if (@available(iOS 10.0, *)) {
+        __block BOOL isOn = NO;
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+            if (settings.notificationCenterSetting == UNNotificationSettingEnabled) {
+                isOn = YES;
+                NSLog(@"打开了通知");
+            }else {
+                isOn = NO;
+                NSLog(@"关闭了通知");
+                [self showAlertView];
+            }
+        }];
+    }else {
+        if ([[UIApplication sharedApplication] currentUserNotificationSettings].types == UIUserNotificationTypeNone){
+            NSLog(@"关闭了通知");
+            [self showAlertView];
+        }else {
+            NSLog(@"打开了通知");
+        }
+    }
+}
+
+- (void)showAlertView {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"通知" message:@"未获得通知权限，请前去设置" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self goToAppSystemSetting];
+        }]];
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    });
+}
+
+// 如果用户关闭了接收通知功能，该方法可以跳转到APP设置页面进行修改
+- (void)goToAppSystemSetting {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIApplication *application = [UIApplication sharedApplication];
+        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        if ([application canOpenURL:url]) {
+            if (@available(iOS 10.0, *)) {
+                if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+                    [application openURL:url options:@{} completionHandler:nil];
+                }
+            }else {
+                [application openURL:url];
+            }
+        }
+    });
+}
+
 @end
